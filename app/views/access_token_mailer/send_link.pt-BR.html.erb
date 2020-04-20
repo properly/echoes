@@ -1,0 +1,38 @@
+<%= render "shared/mail_stylesheet.css" %>
+<div class="main">
+  <h1><img src="https://s3-sa-east-1.amazonaws.com/sp-properly-echoes/email-assets/echoes-email-logo.png" alt="Echoes"></h1>
+  <p>Você recebeu uma nova entrega do seu fornecedor <%= @organization.name %>.</p>
+
+  <div class="package-wrap">
+    <p class="label">Projeto</p>
+    <h2><%= @client.name %></h2>
+
+    <p class="label">Entrega</p>
+    <h2><%= @package.name %></h2>
+
+    <p class="label">Remetente</p>
+    <h3><%= @user.email %><br>
+      <small><%= @organization.name %></small>
+    </h3>
+
+    <p class="label">Conteúdo</p>
+    <table class="contents">
+      <% @posts.each do |post| %>
+      <tr>
+        <td class="name-col">
+          <%= link_to "#{@link}#{post.id}" do %>
+            <%= post.name %>
+            <small class="date-block"><%= "#{post.scheduled_at.strftime("%d/%m")} às #{post.scheduled_at.strftime("%H:%M")}</small>".html_safe %>
+        <% end %>
+        </td>
+        <td >
+          <%= link_to "#{@link}#{post.id}" do -%>
+            <img src="https://s3-sa-east-1.amazonaws.com/sp-properly-echoes/email-assets/arrow.png" alt="visualizar post">
+          <% end %>
+        </td>
+      </tr>
+    <% end -%>
+    </table>
+    <%= link_to "Visualizar entrega", @link, class: "btn" %>
+  </div>
+</div>

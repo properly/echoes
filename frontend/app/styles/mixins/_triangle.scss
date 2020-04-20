@@ -1,0 +1,69 @@
+/*!
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+@mixin arrow($size, $placement, $color: $white, $border_color: transparent, $v_placement: 50%) {
+  $first_placement: top;
+  $second_placement: left;
+
+  @if $placement == "right" {
+    $first_placement: right;
+    $second_placement: top;
+  } @else if $placement == "left" {
+    $first_placement: left;
+    $second_placement: top;
+  } @else if $placement == "bottom" {
+    $first_placement: bottom;
+    $second_placement: left;
+  }
+
+  position: relative;
+  background: $color;
+
+
+  &:after, &:before {
+    #{$first_placement}: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &:after {
+    border-color: rgba(246, 246, 246, 0);
+    border-#{$first_placement}-color: $color;
+    border-width: $size;
+    #{$second_placement}: $v_placement;
+    margin-#{$second_placement}: -$size;
+  }
+
+  @if $border_color != "transparent" {
+    border: 1px solid $border_color;
+
+    &:before {
+      border-color: rgba(217, 217, 217, 0);
+      border-#{$first_placement}-color: $border_color;
+      border-width: ($size + 1);
+      top: $v_placement;
+      margin-#{$second_placement}: -($size + 1);
+    }
+  }
+}

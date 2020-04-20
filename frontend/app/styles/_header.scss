@@ -1,0 +1,324 @@
+/*!
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+@mixin menu-sprite($name) {
+  $margin-top: -#{image-height(sprite-file($icons-sprites, $name))/2};
+  display: block;
+
+  .icon {
+    display: block;
+    @include icons-sprite($name);
+    margin: $margin-top auto 0;
+
+    @include hide-text;
+    @include sprite-dimensions($icons-sprites, $name);
+    position: relative;
+    top: 50%;
+  }
+
+  @include breakpoint($bp__medium) {
+    height: 4em;
+  }
+
+  &:hover .icon {
+    @include icons-sprite('#{$name}-hover');
+  }
+}
+
+@mixin secondary-menu-sprite($name) {
+  $margin-top: -#{image-height(sprite-file($icons-sprites, $name))/2};
+  display: block;
+
+  .icon {
+    @include icons-sprite($name);
+    background-image: none;
+
+    @include breakpoint($bp__medium) {
+      display: block;
+      margin: $margin-top auto 0;
+
+      @include hide-text;
+      @include icons-sprite($name)
+      position: relative;
+      top: 50%;
+    }
+  }
+
+  @include breakpoint($bp__medium) {
+    height: 4em;
+  }
+
+  &:hover .icon {
+    @include icons-sprite('#{$name}-hover');
+    background-image: none;
+
+    @include breakpoint($bp__medium) {
+      @include icons-sprite('#{$name}-hover');
+    }
+  }
+}
+
+%right-aligned-dropdown {
+  @include arrow(.3125rem, "bottom", $base-grey, transparent, 75%);
+  position: absolute;
+  right: .5rem;
+  left: auto;
+}
+
+.top-bar-wrapper {
+  @include clearfix;
+}
+
+.top-bar {
+  @include breakpoint($bp__medium) {
+    margin: 0;
+    height: 4em;
+  }
+
+  height: 3.5em;
+  border-bottom: 1px solid $blue;
+  background-color: $off-white;
+  margin-bottom: 4rem;
+
+  h1 {
+    @include box-sizing('border-box');
+    padding: 1rem;
+    float: left;
+    margin: 0 10% 0 0;
+    height: inherit;
+
+    @include breakpoint($bp__xsmall $bp__medium) {
+      float: none;
+      margin: 0 auto;
+      padding: .75rem 0 1rem;
+      font-size: 1rem;
+    }
+
+    @include breakpoint($bp__large) {
+      margin: 0 20% 0 0;
+    }
+  }
+}
+
+.header-logo {
+  @extend %responsive-margin-left;
+  @include box-sizing('border-box');
+  @include icons-sprite('logo-echoes-menu');
+  @include hide-text;
+  @include sprite-dimensions($icons-sprites, 'logo-echoes-menu');
+  display: block;
+  margin: 0 auto;
+
+  @include breakpoint($bp__medium) {
+    margin: 0;
+  }
+
+  &:hover {
+    @include icons-sprite('logo-echoes-menu-hover');
+  }
+}
+
+.main-navigation {
+  padding: 0;
+  margin: 0;
+  clear: left;
+  border-bottom: 1px solid $blue;
+  height: 4rem;
+  white-space: nowrap;
+
+  @include breakpoint($bp__medium) {
+    clear: none;
+  }
+}
+
+.menu-item {
+  list-style: none;
+  float: left;
+  width: 25%;
+  margin: 0;
+  height: 100%;
+  border-right: 1px solid $blue;
+  background-color: $white;
+
+  &:last-child {
+    border-left: 0;
+  }
+
+  &.active {
+    border-bottom: none;
+  }
+
+  @include breakpoint($bp__medium) {
+    &:nth-child(2) {
+      border-left: 1px solid $blue;
+    }
+
+    height: 4em;
+    width: 4em;
+    border-bottom: 1px solid $blue;
+  }
+
+  &.add-post-tab {
+    border-right: 0;
+
+    @include breakpoint($bp__medium) {
+      width: auto;
+      background: transparent;
+      border: 0;
+    }
+
+    .btn-plus {
+      display: block;
+      width: 1.95rem;
+      height: 1.95rem;
+      margin: 1rem auto;
+      padding: 0;
+      line-height: 1.85rem;
+      font-weight: 900;
+
+      @include breakpoint($bp__medium) {
+        @include inline-block;
+        width: auto;
+        height: 2.125em;
+        font-weight: 300;
+        line-height: 1rem;
+        margin: 1rem;
+        padding: 0.4rem 0.875rem 0.6875rem;
+      }
+    }
+
+    .add-post-text {
+      display: none;
+
+      @include breakpoint($bp__medium) {
+        @include inline-block;
+        margin-left: 0.5rem;
+      }
+    }
+  }
+}
+
+.secondary-navigation {
+  position: absolute;
+  top: 0;
+  left: -17.5rem;
+  bottom: 0;
+  background: $base-grey;
+  color: $white;
+  width: 17.5rem;
+  margin: 0;
+  padding: 0;
+
+  .dropdown {
+    display: block;
+  }
+
+  @include breakpoint($bp__medium) {
+    position: static;
+    background: transparent;
+    float: right;
+    list-style: none;
+    margin-right: 1.5rem;
+    padding: 0;
+    width: 8rem;
+    height: 4em;
+
+    .dropdown {
+      @include inline-block;
+      vertical-align: top;
+      margin: 0;
+      width: 4em;
+    }
+  }
+
+  > ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+}
+
+.menu-toggle {
+  @include breakpoint($bp__medium) {
+    display: none;
+  }
+
+  a {
+    @include menu-sprite('menu-toggle');
+    height: 4em;
+  }
+}
+
+.secondary-navigation-dropdown {
+  @extend .dropdown-box;
+  @extend .dropdown-box-list;
+  @extend .dropdown-small;
+  @extend %right-aligned-dropdown;
+  display: block;
+  position: static;
+  background: transparent;
+  width: 100%;
+
+  @include breakpoint($bp__medium) {
+    display: none;
+    position: absolute;
+    background-color: $base-grey;
+  }
+}
+
+.calendar-tab a {
+  @include menu-sprite('cal');
+  height: 4em;
+}
+
+.list-tab a {
+  @include menu-sprite('list');
+  height: 4em;
+}
+
+.nav-item {
+  overflow: visible;
+  margin: 0;
+  font-size: 1em;
+  background-color: $dark-grey;
+  padding: 0.5rem 1.5rem 0.5rem 1rem;
+
+  @include breakpoint($bp__medium) {
+    background-color: transparent;
+    padding: 0;
+  }
+}
+
+.profile-tab .nav-item {
+  @include secondary-menu-sprite('profile');
+}
+
+.settings-tab .nav-item {
+  @include secondary-menu-sprite('settings');
+}
+
+.organization-nav ul {
+  padding: 0;
+  border-bottom: 1px dotted $dark-grey;
+
+  @include breakpoint($bp__medium) {
+    display: none;
+  }
+}

@@ -1,0 +1,10 @@
+#   sidekiq -C config/sidekiq.yml
+---
+:concurrency: 4
+:pidfile: /var/app/containerfiles/pids/sidekiq.pid
+:verbose: false
+:queues:
+  - [default, 5]
+
+development:
+  :pidfile: tmp/pids/sidekiq.pid

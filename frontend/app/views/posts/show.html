@@ -1,0 +1,142 @@
+<!--
+  ~
+  ~  Echoes - A feedback platform for social marketing.
+  ~  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU Affero General Public License as published
+  ~       by the Free Software Foundation, either version 3 of the License, or
+  ~       (at your option) any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU Affero General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU Affero General Public License
+  ~       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<div ng-show="post.revisions.$resolved && !post.revisions.length">
+  <p class="no-content">{{'revision.empty' | t}}. <a ng-hide="isClient" ng-href="{{newRevisionUrl}}">{{'revision.click_to_add' | t}}.</a></p>
+</div>
+
+<div class="post-header">
+  <div class="post-nav post-previous">
+    <a ng-class="{ hidden: !post.previous_id }" class="" ng-href="{{getNavLink(post.previous_id)}}"><span class="post-nav-arrow">&larr;</span> <span class="post-nav-label">{{'post.previous' | t}}</span></a>
+  </div>
+  <h1 class="title">
+    <span class="post-status entry-{{post.status}}" ng-show="post.status">
+      {{ getStatus() }}
+    </span>
+
+    <div class="title-content">
+      <span class="title-client">
+        {{post.client_name}}
+      </span>
+      <span class="title-divider"></span>
+      <span class="title-name">
+        {{post.name}}
+      </span>
+
+      <span class="title-scheduled-at">
+        {{scheduledAt}}, {{ 'post.at_scheduled_time' | t }} {{post.scheduled_at | date: 'H:mm'}}
+      </span>
+    </div>
+  </h1>
+    <a class="icons-edit" ng-hide="isClient" tooltip="{{'edit' | t}}" ng-href="{{editPostLink()}}">{{'edit' | t}}</a>
+  <div class="post-nav post-next">
+    <a ng-class="{ hidden: !post.next_id }" class="" ng-href="{{getNavLink(post.next_id)}}"><span class="post-nav-label">{{'post.next' | t}}</span> <span class="post-nav-arrow">&rarr;</span></a>
+  </div>
+</div>
+
+
+<div class="revision" ng-controller="RevisionsIndexCtrl" ng-repeat="revision in post.revisions | orderBy:'id':true" ng-class="{ 'latest-revision': ($index == 0) }">
+  <div class="revision-header revision-manager">
+    <h2>{{ 'post.revision' | t }} <span class="revision-header-divider">#</span>{{post.revisions.length - $index}} </h2>
+    <a ng-click="confirmRevisionRemoval(revision, post.revisions)" tooltip="{{'remove' | t}}" tooltip-placement="left" class="icons-garbage" ng-hide="isClient">{{ 'remove' | t }}</a>
+    <a ng-href="{{editRevisionLink(revision.id)}}" tooltip="{{'edit' | t}}" class="icons-edit" ng-hide="isClient">{{ 'edit' | t }}</a>
+  </div>
+
+  <div class="contents" ng-controller="RevisionsShowCtrl" ng-show="revision.contents.length > 0">
+    <div class="content content-{{content.target}}" ng-repeat="content in revision.contents">
+      <div class="target-sidebar">
+        <p class="target-counter">
+        <span class="count-current">{{ $index + 1 }}</span>
+        <span class="count-separator">/</span>
+        <span class="count-total">{{ revision.contents.length}}</span>
+        </p>
+        <span class="icons-target icons-target-{{content.target}}">
+          {{content.target}}
+        </span>
+      </div>
+
+      <div class="attachment attachment-{{content.target}}" ng-switch on="content.target">
+        <div class="attachment-legend" ng-hide="content.target == 'instagram'" ng-bind="content.body"> </div>
+        <div class="attachment-image">
+          <a ng-href="{{ content.image.url }}" class="attachment-image-wrapper" target="_blank">
+            <img ng-src="{{urlProcessed(content.image.fb_feed_small.url, content.image_processing)}}" ng-switch-when="facebook" />
+            <img ng-src="{{urlProcessed(content.image.twitter_feed.url, content.image_processing)}}" ng-switch-when="twitter" />
+            <img ng-src="{{urlProcessed(content.image.instagram.url, content.image_processing)}}" ng-switch-when="instagram" />
+            <img ng-if="content.image.url" ng-src="{{urlProcessed(content.image.generic.url, content.image_processing)}}" ng-switch-default/>
+            <video ng-if="content.video.url" ng-src="{{content.video.url}}" controls class="video-player"></video>
+          </a>
+        </div>
+        <div class="attachment-legend" ng-show="content.target == 'instagram'" ng-bind="content.body"> </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="comments-col">
+    <ol class="comments" ng-controller="SharedCommentsCtrl">
+      <li ng-repeat="comment in revision.comments" class="list-group-item">
+      <h5 class="comment-author">
+        <span class="comment-author-avatar" ng-class="{'is-user': comment.comment_author_type == 'User'}">
+          <span ng-hide="comment.comment_author.avatar.thumb.url">
+            {{comment.comment_author.email[0]}}
+          </span>
+          <img ng-src="{{comment.comment_author.avatar.thumb.url}}" alt="">
+        </span>
+        <span class="comment-author-email">{{comment.comment_author.name}}</span>
+      </h5>
+      <div class="comment-body" ng-bind="comment.body"></div>
+      <p class="comment-timestamp">
+      {{comment.created_at | timeago}}
+      </p>
+      </li>
+
+      <li class="comment-form" ng-show="$index == 0">
+      <form role="form">
+        <h5 class="comment-author">
+          <span class="comment-author-avatar" ng-class="{'is-user': currentUser.is_user}">
+            <span ng-hide="currentUser.avatar.thumb.url">
+              {{currentUser.email[0]}}
+            </span>
+            <img ng-src="{{currentUser.avatar.thumb.url}}" alt="">
+          </span>
+          <span class="comment-author-email">{{currentUser.name}}</span>
+        </h5>
+
+        <textarea ng-model="$parent.$parent.commentBody" class="comment-textarea" cols="15" rows="4">
+        </textarea>
+
+        <button ng-click="addComment(revision, $parent.$parent.commentBody)" class="btn comment-add">
+          {{ 'comment.add' | t }}
+        </button>
+        <button ng-click="approve(revision, $parent.$parent.commentBody)" ng-show="post.status != 'approved'"
+          class="btn comment-approve">
+          {{ 'post.approve' | t }}
+        </button>
+        <button ng-click="reopen(revision, $parent.$parent.commentBody)" ng-show="post.status == 'approved'"
+          class="btn comment-reopen">
+          {{ 'post.reopen' | t }}
+        </button>
+
+        <a ng-hide="isClient || post.status == 'approved'" class="btn revision-add" ng-href="{{newRevisionUrl}}">{{'revision.new' | t}}</a>
+      </form>
+      </li>
+
+    </ol>
+  </div>
+</div>

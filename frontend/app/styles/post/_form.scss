@@ -1,0 +1,121 @@
+/*!
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+.target-list {
+  @include clearfix;
+  margin: 0.31rem 0 2.19rem;
+  padding: 0;
+  border-top: 1px solid lighten($base-grey, 34);
+  list-style: none;
+
+  li {
+    @include inline-block;
+    text-align: center;
+    @include span(1 of 4 (0));
+
+    @include breakpoint($bp__small) {
+      max-width: 7rem;
+    }
+
+    a {
+      display: block;
+      padding-top: 1.66rem;
+      width: 100%;
+      color: lighten($base-grey, 8);
+      font-size: $medium-font;
+
+      &.active {
+        background: url(../images/post-type-active.png) no-repeat 50% 0;
+      }
+
+      &.active,
+      &:hover {
+        color: $blue;
+        text-decoration: none;
+      }
+    }
+
+    em {
+      margin: 0 auto 1.4rem;
+
+      &.icons-target-twitter {
+        margin: 0.26rem auto 1.57rem;
+      }
+    }
+  }
+}
+
+.new-content-wrapper {
+  clear: both;
+  padding-top: 2.75rem;
+}
+
+.add-content-wrapper {
+  position: relative;
+  top: 2.75rem;
+  clear: both;
+  margin-bottom: 4.4rem;
+  padding-top: 2.1rem;
+  border-top: 1px solid lighten($base-grey, 34);
+
+  > a {
+    color: $black;
+    font-size: $large-font;
+
+    &:hover {
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+
+  .icons-add-content {
+    @include inline-block;
+    @include icons-sprite('add-content');
+    @include sprite-dimensions($icons-sprites, 'add-content');
+    margin-right: 0.35rem;
+  }
+
+  ul {
+    display: none;
+    margin: 0;
+    list-style: none;
+
+    @include breakpoint($bp__medium) {
+      display: block;
+      float: right;
+    }
+
+  }
+
+  li {
+    @include inline-block;
+    @include opacity(0.5);
+    margin-left: 0.87rem;
+  }
+}
+
+.time-options {
+  padding: 0;
+  text-align: center;
+}
+
+.btn-wrap {
+  clear: both;
+}

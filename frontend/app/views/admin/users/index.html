@@ -1,0 +1,55 @@
+<!--
+  ~
+  ~  Echoes - A feedback platform for social marketing.
+  ~  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU Affero General Public License as published
+  ~       by the Free Software Foundation, either version 3 of the License, or
+  ~       (at your option) any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU Affero General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU Affero General Public License
+  ~       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<div class="container">
+  <table class="large-table">
+    <tr>
+      <th colspan="2">Meta</th>
+    </tr>
+
+    <tr>
+      <td>User count</td>
+      <td>{{meta.user_count}}</td>
+    </tr>
+    <tr>
+      <td>Organization count</td>
+      <td>{{meta.organization_count}}</td>
+    </tr>
+    <tr>
+      <td>Post count</td>
+      <td>{{meta.post_count}}</td>
+    </tr>
+
+  </table>
+
+  <table class="large-table">
+    <tr>
+      <th>Email</th>
+      <th>Organization Name</th>
+    </tr>
+    <tr ng-repeat="user in users">
+      <td>{{user.email}} <small ng-show="user.owner">owner</small></td>
+      <td>{{user.organization_name}}</td>
+      <td><a ng-click="destroy(user)" class="icons-garbage pull-right">destroy</a></td>
+    </tr>
+  </table>
+  <a ng-click="previousPagePath()" class="btn btn-primary" ng-hide="queryParams.page == 1">« Prev</a>
+  <a ng-click="nextPagePath()" class="btn btn-primary pull-right" ng-hide="queryParams.page == userMeta.totalPages">Next »</a>
+</div>

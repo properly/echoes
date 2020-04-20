@@ -1,0 +1,50 @@
+<!--
+  ~
+  ~  Echoes - A feedback platform for social marketing.
+  ~  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU Affero General Public License as published
+  ~       by the Free Software Foundation, either version 3 of the License, or
+  ~       (at your option) any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU Affero General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU Affero General Public License
+  ~       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<div class="calendar-nav">
+  <button class="arrow-left btn-minimal" ng-click="prevWeek(currentWeek)">
+    <span class="icon"> {{'calendar.next' | t}} </span>
+  </button>
+  <button class="arrow-right btn-minimal" ng-click="nextWeek(currentWeek)">
+    <span class="icon">{{'calendar.previous' | t}}</span>
+  </button>
+  <button class="btn-minimal calendar-nav-today" ng-click="today()">
+    {{'calendar.today' | t}}
+  </button>
+</div>
+
+<div class="year-month">
+  <span class="month-label">
+    {{ getMonth() }}
+  </span>
+  <span class="year-number">
+    {{ getYear() }}
+  </span>
+</div>
+
+<div class="week">
+  <span class="week-label">
+    {{ 'calendar.week' | t}}
+  </span>
+  <span class="week-number">
+    {{ getWeek() }}
+  </span>
+</div>
+

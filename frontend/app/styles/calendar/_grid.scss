@@ -1,0 +1,81 @@
+/*!
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+.calendar-wrapper {
+  @include clearfix;
+  position: relative;
+  clear: both;
+  padding: 0 2.25em;
+}
+
+.calendar-template {
+  clear: both;
+}
+
+.calendar-week {
+  padding: 0;
+}
+
+.calendar-day {
+  float: left;
+  width: 14.285714286%;
+  list-style-type: none;
+
+  &.today {
+    background: $light-grey;
+  }
+
+  ul {
+    min-height: 20em;
+    border-left: 1px dotted darken($light-grey, 9);
+  }
+
+  &:last-child ul {
+    border-right: 1px dotted darken($light-grey, 9);
+  }
+
+}
+
+.calendar-day-title {
+  margin: 0;
+  padding: .5em .75em;
+  border-bottom: 4px solid $blue;
+  color: $black;
+  font-weight: 300;
+  font-size: $normal-font;
+
+  .weekday {
+    color: lighten($base-grey, 30.1);
+  }
+
+}
+
+.calendar-day {
+  &:last-child .calendar-day-title {
+    margin-right: -2.25em;
+    padding-right: 3em;
+  }
+
+  &:first-child .calendar-day-title {
+    margin-left: -2.25em;
+    padding-left: 3em;
+  }
+}
+

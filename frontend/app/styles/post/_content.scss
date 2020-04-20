@@ -1,0 +1,239 @@
+/*!
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+.no-content {
+  text-align: center;
+  margin-top: 4rem;
+
+}
+
+.content {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: .0625rem;
+  padding: 1rem 0 0;
+  min-height: 300px;
+  border-top: 1px solid $light-grey;
+  clear: both;
+
+  @include breakpoint($bp__medium) {
+    padding: 0 0 0 2.75rem;
+  }
+}
+
+.content-instagram {
+  background: $light-grey image-url("bg/instagram-noise.png");
+}
+
+.content-facebook {
+  background-color: #e9eaed;
+}
+
+.content-twitter {
+  background: #c0deed;
+}
+
+.target-sidebar {
+  width: 95%;
+  background-color: white;
+  margin: 0 auto;
+  padding-left: 1.2rem;
+
+  @include breakpoint($bp__medium) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: auto;
+    width: 2.75rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .icons-target {
+    @include inline-block;
+    margin-left: .75rem;
+
+    @include breakpoint($bp__medium) {
+      display: block;
+      margin-left: .5rem;
+    }
+  }
+}
+
+.target-counter {
+  margin-bottom: .5rem;
+  padding-bottom: .5rem;
+  @include inline-block;
+
+  @include breakpoint($bp__medium) {
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid $light-grey;
+  }
+}
+
+.count-current {
+  @include inline-block;
+  padding-bottom: .25rem;
+}
+
+.count-separator {
+  margin: 0 auto;
+  @include icons-sprite("count-separator");
+  background-image: none;
+
+  @include breakpoint($bp__medium) {
+    background-image: sprite-url($icons-sprites);
+    display: block;
+    @include hide-text;
+    @include sprite-dimensions($icons-sprites, "count-separator");
+  }
+}
+
+.count-total {
+  color: lighten($base-grey, 16.5);
+  font-size: $small-font;
+}
+
+.attachment {
+  margin: 1rem 0 0;
+  font-size: $medium-font;
+
+  img {
+    width: 100%;
+  }
+
+  @include breakpoint($bp__medium) {
+    margin: 1rem auto;
+    padding: 0 1rem;
+  }
+
+  .video-player {;
+    max-width:100%;
+    height:380px;
+  }
+}
+
+.attachment-generic {
+  width: 100%;
+  padding: 0;
+  font-size: $normal-font;
+  font-weight: normal;
+
+  .attachment-legend {
+    color: $dark-grey;
+  }
+
+  @include breakpoint($bp__medium) {
+    img {
+      width: auto;
+      margin: .875rem;
+    }
+  }
+}
+
+.attachment-facebook {
+  font-family: Helvetica, Arial, 'lucida grande',tahoma,verdana,arial,sans-serif; //FB
+  max-width: 411px;
+  border: 1px solid #c4cde1;
+  background-color: $white;
+  margin: 0 .25rem;
+  padding: 0 0 .2rem 0;
+
+  .attachment-image-wrapper {
+    margin: 0 -.25rem;
+    display: block;
+  }
+
+  @include breakpoint(421px) {
+    margin: 1rem auto;
+    padding: .2rem;
+    @include border-radius(3px);
+
+    .attachment-image-wrapper {
+      margin: 0;
+    }
+  }
+}
+
+.attachment-instagram {
+  @include box-shadow(0 1px 6px rgba(0,0,0,.12));
+  @include background-clip(padding-box);
+  font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif; // instagram, maybe embed proxima nova someday
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid rgba($black,.21);
+  background-color: $white;
+
+  @include breakpoint($bp__medium) {
+    @include border-radius(4px);
+  }
+}
+
+.attachment-twitter {
+  @include background-clip(padding-box);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; // twitter
+  padding: .75rem 0;
+  width: 100%;
+  max-width: 532px; // width with avatar: 588px
+  background-color: $white;
+
+  .attachment-legend {
+    margin: .1rem .875rem .875rem;
+  }
+
+  @include breakpoint($bp__medium) {
+    @include border-radius(5px);
+    padding: .75rem .75rem .75rem .75rem; // padding right with avatar: 4.25rem
+  }
+
+}
+
+.attachment-legend {
+  @extend %pre-wrap;
+  margin: .875rem;
+  color: #141823;
+}
+
+.remove-content {
+  clear: both;
+  float: right;
+  color: $focus-grey;
+  font-size: $medium-font;
+  text-decoration: none;
+  margin-top: 2rem;
+
+  em {
+    @include inline-block;
+    @include icons-sprite('garbage');
+    @include sprite-dimensions($icons-sprites, 'garbage');
+    margin-left: 0.75rem;
+  }
+
+  &:hover {
+    em {
+      @include icons-sprite('garbage-hover');
+    }
+
+  }
+}

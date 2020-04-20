@@ -1,0 +1,89 @@
+<!--
+  ~
+  ~  Echoes - A feedback platform for social marketing.
+  ~  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU Affero General Public License as published
+  ~       by the Free Software Foundation, either version 3 of the License, or
+  ~       (at your option) any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU Affero General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU Affero General Public License
+  ~       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<!doctype html>
+<!--[if lt IE 8]>      <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Echoes</title>
+    <base href="/">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <meta property="og:title" content="Echoes"/>
+    <meta property="og:description" content="Uma plataforma de gestão para simplificar e agilizar o envio e aprovação de conteúdo entre agência e cliente" />
+  </head>
+
+  <body ng-app="echoesAppProd" class="{{bodyClass}}">
+    <div class="off-canvas">
+      <div class="top-bar-wrapper" ng-include="'views/header/_main.html'"></div>
+
+      <div ng-view="">
+        <div class='bounce-loader'>
+          <div class='bounce1'></div>
+          <div class='bounce2'></div>
+          <div class='bounce3'></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-wrapper" ng-include="'views/footer/_main.html'"></div>
+
+    <div class="flash flash-success" flash-messages="success" ng-click="hide()">
+      <em class="icons-success"></em>
+      <ul>
+        <li ng-repeat="msg in flash.message">{{msg}}</li>
+      </ul>
+    </div>
+
+    <div class="flash flash-errors" flash-messages="error" ng-click="hide()">
+      <em class="icons-warning"></em>
+      <ul>
+        <li ng-repeat="msg in flash.message">{{msg}}</li>
+      </ul>
+    </div>
+
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+    <script>
+      WebFontConfig = {
+        google: {
+          families: ['Roboto:400,100,300,100italic,300italic,700,700italic,400italic'],
+          timeout: 3500
+        }
+      };
+
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                  '://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+    </script>
+
+    <script src="/bundle.js"></script>
+    <script src="/api/settings.js"></script>
+
+    </body>
+  </html>

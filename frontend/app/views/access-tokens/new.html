@@ -1,0 +1,42 @@
+<!--
+  ~
+  ~  Echoes - A feedback platform for social marketing.
+  ~  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU Affero General Public License as published
+  ~       by the Free Software Foundation, either version 3 of the License, or
+  ~       (at your option) any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU Affero General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU Affero General Public License
+  ~       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<div class="container">
+  <h2 class="page-title">{{'access_token.send_package' | t}}</h2>
+  <div class="column-large-limited">
+    <div class="block-form">
+      <label>{{'access_token.email' | t}}:</label>
+      <input type="text" ng-model="reviewer.email" />
+    </div>
+    <a class="btn" ng-href="/clients/{{clientId}}/packages/{{packageId}}">{{'back' | t}}</a>
+    <input class="btn btn-primary" ng-click="sendPackage()" value="{{'send' | t}}" type="submit">
+
+    <div ng-show="accessTokens.length">
+      <h2 class="page-title">{{'access_token.sent_emails' | t}}:</h2>
+      <p>{{'access_token.link_list_intro' |t}}</p>
+      <ul ng-repeat="accessToken in accessTokens">
+        <li>
+          {{accessToken.reviewer.email}} - <a ng-href="{{accessToken.link}}">{{'access_token.link' | t}}</a>
+          <br><small>{{accessToken.created_at |date:'short' }}</small>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+/*!
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+.icons-success {
+  @include inline-block;
+  @include icons-sprite('success');
+  @include sprite-dimensions($icons-sprites, 'success');
+  margin: 0 2rem 0 2.18rem;
+}
+
+.icons-warning {
+  @include inline-block;
+  @include icons-sprite('warning');
+  @include sprite-dimensions($icons-sprites, 'warning');
+  margin: 0 2rem 0 2.18rem;
+}
+
+.flash {
+  position: fixed;
+  bottom: 0;
+  z-index: $zindex-over;
+  display: none;
+  padding: 1.25rem 0;
+  width: 100%;
+  font-size: $medium-font;
+  font-weight: 500;
+
+  ul {
+    @include inline-block;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    margin-bottom: 0.31rem;
+  }
+}
+
+.flash-success {
+  background-color: $green-dark;
+  color: $white;
+}
+
+.flash-errors {
+  background-color: $yellow;
+  color: #FF7070;
+}

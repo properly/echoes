@@ -1,0 +1,54 @@
+<!--
+  ~
+  ~  Echoes - A feedback platform for social marketing.
+  ~  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU Affero General Public License as published
+  ~       by the Free Software Foundation, either version 3 of the License, or
+  ~       (at your option) any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU Affero General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU Affero General Public License
+  ~       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<div ng-include="'views/calendar/_header.html'"></div>
+
+
+<div class="calendar-wrapper">
+  <ul class="calendar-week">
+    <li class="calendar-day" ng-class="{today: currentDay($index)}" ng-repeat="dailyPosts in postsForWeek">
+      <h2 class="calendar-day-title"><span class="weekday">{{ getWeekday($index) }},</span> {{ getDate($index) }}</h2>
+      <ul class="entry-container">
+        <li ng-class="{approved: post.status}" class="entry" ng-repeat="post in dailyPosts | filter:{'package_id': filterBy.id || ''}">
+          <a ng-click="showPostPath(uuid, post.id, clientId, post.package_id)">
+            <div class="entry-meta">
+              <span class="entry-target {{post.target || 'generic'}}">
+                {{ 'content.targets.' + (post.target || 'generic') | t }}
+              </span>
+              <span class="entry-scheduled-time">{{post.scheduled_at | date : 'H:mm'}}</span>
+              <span class="entry-{{post.status}} entry-status-small" ng-show="post.status">
+                {{ 'post.status.' + (post.status || 'approved') | t }}
+              </span>
+            </div>
+            <div class="post">
+              <p class="post-name">
+                {{post.name}}
+              </p>
+              <p class="post-package">
+                {{post.package_name}}
+              </p>
+            </div>
+          </a>
+        </li>
+        <li ng-hide="uuid"><a class="add-post-small" ng-click="newPostPath($index, clientId, packageId)"><span class="plus-icon">+</span></a></li>
+      </ul>
+    </li>
+  </ul>
+</div>

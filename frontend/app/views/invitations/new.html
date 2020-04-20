@@ -1,0 +1,43 @@
+<!--
+  ~
+  ~  Echoes - A feedback platform for social marketing.
+  ~  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU Affero General Public License as published
+  ~       by the Free Software Foundation, either version 3 of the License, or
+  ~       (at your option) any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU Affero General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU Affero General Public License
+  ~       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<h2 class="container page-title">{{'organization.edit' | t}}</h2>
+
+<div class="tabs" ng-include="'views/organizations/_tabs.html'"></div>
+
+<div class="tab-content">
+  <div class="container">
+    <h2 class="column-title-first">{{'organization.members.list' | t}}</h2>
+    <table class="large-table">
+      <tr ng-repeat="member in users">
+        <td>{{ member.email }}
+          <small ng-show="member.owner"> &mdash; {{'organization.members.owner' | t}}</small>
+          <small ng-hide="member.invitation_accepted_at || member.owner"> &mdash; {{'organization.members.pending' | t}}</small>
+        </td>
+
+        <td><a ng-hide="member.owner" class="icons-garbage" tooltip="{{ (member.invitation_accepted_at ? 'organization.members.remove' : 'organization.members.revoke' ) | t }}"
+          ng-click="removeMember(member, users)">{{'remove' | t}}</a>
+        </td>
+      </tr>
+    </table>
+
+    <div invite-user-form users="users" organization="organization" client="client"></div>
+  </div>
+</div>

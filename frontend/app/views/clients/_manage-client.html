@@ -1,0 +1,62 @@
+<!--
+  ~
+  ~  Echoes - A feedback platform for social marketing.
+  ~  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU Affero General Public License as published
+  ~       by the Free Software Foundation, either version 3 of the License, or
+  ~       (at your option) any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU Affero General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU Affero General Public License
+  ~       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<div class="client-manage-item">
+  <div manageable>
+    <div class="item-manage client-manage" >
+      <h3 ng-hide="editing">
+        <a ng-href="/clients/{{client.id}}">{{client.name}}</a>
+      </h3>
+
+      <form class="edit" ng-show="editing" ng-submit="update(client)">
+        <input type="text" ng-model="client.name" />
+        <input type="submit" value="{{ 'save' | t }}" class="btn-primary" />
+        <input type="button" value="{{ 'cancel' | t }}" />
+      </form>
+
+      <div class="manage-buttons" >
+        <a class="icons-edit" tooltip="{{'edit' | t}}">{{'edit' | t}}</a>
+        <a class="icons-assign-users" tooltip="{{'client.assign_users' | t}}" ng-click="toggleUserAssign()">{{ 'client.assign_users' | t }}</a>
+        <a class="icons-garbage" tooltip="{{'remove' | t}}" ng-show="user.owner" ng-click="confirmRemoval(client, clients)">{{'remove' | t}}</a>
+        <a class="icons-garbage-disabled" tooltip="{{'client.removal_disabled' | t}}" ng-hide="user.owner">{{'remove' | t}}</a>
+        <p class="sub-counter">{{ 'client.total_packages' | t:{ count: client.packages.length} }}</p>
+      </div>
+
+      <div client-user-assign="client"></div>
+    </div>
+    <ul class="package-list">
+      <li class="client-manage-list-package" ng-repeat="pkg in client.packages" manageable>
+      <div class="item-manage">
+        <h3 ng-hide="editing">{{pkg.name}}</h3>
+        <form class="edit" ng-show="editing" ng-submit="update(pkg)">
+          <input type="text" ng-model="pkg.name" />
+          <input type="submit" value="{{ 'save' | t }}" class="btn-primary" />
+          <input type="button" value="{{ 'cancel' | t }}" />
+        </form>
+        <div class="manage-buttons" ng-hide="editing">
+          <a class="icons-edit" tooltip="{{'edit' | t}}">{{'edit' | t}}</a>
+          <a class="icons-garbage" tooltip="{{'remove' | t}}" ng-click="confirmRemoval(pkg, client.packages)">{{'remove' | t}}</a>
+          <p class="sub-counter">{{ 'client.total_posts' | t:{count: pkg.posts_count} }}</p>
+        </div>
+      </div>
+      </li>
+    </ul>
+  </div>
+</div>

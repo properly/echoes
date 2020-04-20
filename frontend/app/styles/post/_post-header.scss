@@ -1,0 +1,238 @@
+/*!
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+.post-header {
+  width: 100%;
+  background-color: $white;
+  text-align: center;
+  padding: 0 .5rem;
+
+  @include breakpoint($bp__medium) {
+    height: 3.8rem;
+  };
+
+  .title {
+    @include inline-block;
+    margin: 0;
+    color: $black;
+    font-weight: 300;
+    font-size: $large-font;
+    line-height: 2.1rem;
+    padding: .5rem 0;
+  }
+
+  .title-name,
+  .title-scheduled-at,
+  .title-client {
+    display: block;
+    line-height: 1rem;
+  }
+
+  .title-client {
+    font-size: .5rem;
+    text-transform: uppercase;
+  }
+
+  .title-scheduled-at {
+    font-size: $small-font;
+    line-height: 1.5rem;
+  }
+
+  .title-client, .title-scheduled-at {
+    color: $base-grey;
+  }
+
+  .title-divider {
+    @include icons-sprite("post-title-divider");
+    @include sprite-dimensions($icons-sprites, "post-title-divider");
+    @include inline-block;
+    margin: 0 .125em;
+    vertical-align: middle;
+    display: none;
+  }
+
+  .post-nav {
+    overflow: hidden;
+    width: 3rem;
+
+    &-label {
+      display: none;
+    }
+
+    a {
+      display: block;
+      padding: .75rem;
+
+    }
+  }
+
+  @include breakpoint($bp__medium) {
+    .title {
+      padding: 0;
+    }
+
+    .title-content {
+      @include inline-block;
+      vertical-align: top;
+    }
+
+    .title-name,
+    .title-scheduled-at,
+    .title-client {
+      @include inline-block;
+      line-height: auto;
+      font-size: $large-font;
+      text-transform: none;
+      line-height: auto;
+    }
+
+    .title-scheduled-at {
+      display: block;
+      font-size: $normal-font;
+    }
+
+    .title-divider {
+      @include inline-block;
+    }
+
+    .icons-edit {
+      vertical-align: top;
+      margin-top: .58rem;
+    }
+
+    .post-nav {
+      width: auto;
+      line-height: 2.8rem;
+
+      a {
+        @include inline-block;
+        font-size: $medium-font;
+        font-weight: 500;
+        color: $focus-grey;
+        padding: 0;
+
+        &:hover {
+          text-decoration: none;
+          color: $blue;
+        }
+
+      }
+    }
+
+    .post-nav-label {
+      @include inline-block;
+    }
+  };
+
+  .post-status {
+    display: block;
+    margin-right: .5rem;
+    padding: .0625rem .375rem;
+    height: 1rem;
+    font-weight: 400;
+    font-size: .625rem;
+    line-height: 1rem;
+    color: $black;
+
+    @include breakpoint($bp__medium) {
+      @include inline-block;
+
+    };
+  }
+
+  .post-remove {
+    font-size: $medium-font;
+    color: lighten($base-grey, 30);
+  }
+
+  .post-confirm-remove {
+    font-size: $medium-font;
+    @extend .btn-primary;
+    margin: 0 0 .25rem 0.4rem;
+    height: 2rem;
+    background-color: $red;
+  }
+
+  .post-navigation-links {
+    display: inline;
+
+    @include breakpoint(0 $bp__medium) {
+      display: block;
+      float: left;
+      width: 100%;
+      border-top: 1px solid $light-grey;
+    }
+  }
+
+  .post-nav {
+    line-height: 3.7rem;
+    font-size: $medium-font;
+    font-weight: 500;
+    color: $focus-grey;
+
+    &:hover {
+      text-decoration: none;
+      color: $blue;
+    }
+
+    .post-nav-arrow {
+      @include inline-block();
+      color: $blue;
+      margin: -2px 10px;
+    }
+
+    a.hidden {
+      visibility: hidden;
+    }
+  }
+
+  .post-previous {
+    float: left;
+    .post-nav-arrow {
+      @include icons-sprite("arrow-left");
+      @include hide-text;
+      @include sprite-dimensions($icons-sprites, "arrow-left");
+    }
+    &:hover .post-nav-arrow {
+      @include icons-sprite("arrow-left-hover");
+    }
+  }
+
+  .post-next {
+    float: right;
+    .post-nav-arrow {
+      @include icons-sprite("arrow-right");
+      @include hide-text;
+      @include sprite-dimensions($icons-sprites, "arrow-right");
+    }
+    &:hover .post-nav-arrow {
+      @include icons-sprite("arrow-right-hover");
+    }
+  }
+
+  .icons-edit {
+    @include opacity(.28);
+
+    &:hover {
+      @include opacity(1);
+    }
+  }
+}
+

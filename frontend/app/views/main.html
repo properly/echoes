@@ -1,0 +1,97 @@
+<!--
+  ~
+  ~  Echoes - A feedback platform for social marketing.
+  ~  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU Affero General Public License as published
+  ~       by the Free Software Foundation, either version 3 of the License, or
+  ~       (at your option) any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU Affero General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU Affero General Public License
+  ~       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<div class="section section-splash">
+  <div class="subcontainer">
+    <div class="logo-large">
+      <h1 class="logo">Echoes</h1>
+    </div>
+    <nav class="upper-menu">
+      <ul>
+        <li><a href="/login?isNewUser=true">Cadastre-se</a></li>
+        <li><a class="btn-login" ng-hide="currentUser.id" href="/login">Login</a></li>
+        <li><a class="btn-login" ng-show="currentUser.id" href="/clients">Login</a></li>
+      </ul>
+    </nav>
+    <h2 class="main-splash">Uma plataforma de gestão para simplificar e agilizar o envio e aprovação de conteúdo entre agência e cliente.</h2>
+    <p class="main-cto">
+      Comece a usar agora</p>
+    <div class="cto-wrap">
+      <a class="btn btn-negative btn-cto" href="/login?isNewUser=true">Cadastre-se</a>
+    </div>
+  </div>
+</div>
+
+<div class="section section-carousel">
+  <div class="subcontainer">
+    <h2>Funcionalidades</h2>
+  </div>
+  <ul rn-carousel rn-carousel-indicator rn-carousel-control class="home-carousel">
+
+    <li class="slide add-post">
+      <img src="/images/feature-add-post.png" alt="">
+      <div class="subcontainer">
+        <h3 class="key-feature">
+          {{ 'homepage.features.add_post.title' | t}}
+        </h3>
+        <p class="intro">
+          {{ 'homepage.features.add_post.body' | t}}
+        </p>
+      </div>
+    </li>
+
+    <li class="slide calendar">
+      <img src="/images/feature-calendar.png" alt="">
+      <div class="subcontainer">
+        <h3 class="key-feature">
+          {{  'homepage.features.calendar.title'| t}}
+        </h3>
+        <p class="intro">
+          {{ 'homepage.features.calendar.body' | t}}
+        </p>
+      </div>
+    </li>
+
+    <li class="slide email">
+      <img src="/images/feature-email.png" alt="">
+      <div class="subcontainer">
+        <h3 class="key-feature">
+          {{  'homepage.features.email.title'| t}}
+        </h3>
+        <p class="intro">
+          {{ 'homepage.features.email.body' | t}}
+        </p>
+      </div>
+    </li>
+
+    <li class="slide post">
+      <img src="/images/feature-post.png" alt="">
+      <div class="subcontainer">
+        <h3 class="key-feature">
+          {{  'homepage.features.post.title'| t}}
+        </h3>
+        <p class="intro">
+          {{ 'homepage.features.post.body' | t}}
+        </p>
+      </div>
+    </li>
+
+  </ul>
+</div>

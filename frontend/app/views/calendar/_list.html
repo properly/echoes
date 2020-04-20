@@ -1,0 +1,47 @@
+<!--
+  ~
+  ~  Echoes - A feedback platform for social marketing.
+  ~  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU Affero General Public License as published
+  ~       by the Free Software Foundation, either version 3 of the License, or
+  ~       (at your option) any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU Affero General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU Affero General Public License
+  ~       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<div ng-include="'views/calendar/_header.html'"></div>
+
+<ul class="list-week">
+  <li class="list-day" ng-class="{today: currentDay($index)}" ng-repeat="dailyPosts in postsForWeek">
+    <h2 class="list-day-title"><span class="weekday">{{ getWeekday($index) }},</span> {{ getDate($index) }}</h2>
+    <ul class="list-entry-container">
+      <li ng-class="{approved: post.status}" class="list-entry" ng-repeat="post in dailyPosts | filter:{'package_id': filterBy.id || ''}">
+        <div class="entry-meta">
+          <span class="entry-{{post.status}} entry-status-small" ng-show="post.status">
+            {{ 'post.status.' + (post.status || 'approved') | t }}
+          </span>
+          <span class="entry-scheduled-time">{{post.scheduled_at | date : 'H:mm'}}</span>
+          <span class="entry-target {{post.target || 'generic'}}">
+            {{ 'content.targets.' + (post.target || 'generic') | t }}
+          </span>
+        </div>
+        <p class="post">
+          <a ng-click="showPostPath(uuid, post.id, clientId, post.package_id)">
+            {{post.name}}
+            <span>{{post.package_name}}</span>
+          </a>
+        </p>
+      </li>
+      <li ng-hide="uuid"><a class="list-add-post" ng-click="newPostPath($index, clientId, packageId)"><span class="plus-icon">+</span> {{'post.create-post' | t}}</a></li>
+    </ul>
+  </li>
+</ul>

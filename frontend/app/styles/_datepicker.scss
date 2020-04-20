@@ -1,0 +1,161 @@
+/*!
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+.datepicker-input {
+  color: $base-grey;
+  background: url(../images/bg/cal-small.png) no-repeat right 10px center $light-grey;
+  padding-right: 2.5rem;
+}
+
+// TODO Repeating things from dropdown. In future, use one for all instead
+
+.dropdown-menu {
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+.datepicker {
+  width: 100%;
+  background-color: $base-grey;
+  @include border-radius(4px);
+  @include arrow(5px, bottom, $base-grey);
+  margin: 0 auto;
+
+  @include breakpoint($bp__small) {
+    width: 21rem;
+  };
+
+  .hide {
+    display: none;
+  }
+
+  table {
+    font-weight: 300;
+    width: 100%;
+    color: $off-white;
+    margin-bottom: 0;
+    padding-bottom: 0;
+
+    button {
+      background: transparent;
+      margin: 0;
+      padding: 0;
+      color: $white;
+      font-weight: 300;
+      height: 1.75rem;
+      line-height: 1rem;
+
+      @include breakpoint($bp__small) {
+        height: 2.25rem;
+        line-height: 1.5rem;
+      };
+
+      &:focus {
+        background-color: transparent;
+      }
+
+    strong {
+        font-weight: 500;
+      }
+    }
+
+    thead {
+      padding-bottom: .5rem;
+    }
+
+    tbody {
+      &::after {
+        display: block;
+        height: 1rem;
+        content: " ";
+      }
+    }
+
+    th {
+      cursor: pointer;
+      font-weight: 200;
+      padding: .5rem 0;
+
+      &.switch {
+        height: 55px;
+      }
+
+      > small {
+        font-size: $small-font;
+        color: $black;
+        cursor: default;
+        font-weight: 500;
+      }
+
+      .glyphicon-chevron-left {
+        display: block;
+        @include icons-sprite('arrow-left');
+        @include sprite-dimensions($icons-sprites, 'arrow-left');
+        margin-left: 0.875rem;
+      }
+
+      .glyphicon-chevron-right {
+        float: right;
+        display: block;
+        @include icons-sprite('arrow-right');
+        @include sprite-dimensions($icons-sprites, 'arrow-right');
+        margin-right: 0.875rem;
+      }
+    }
+
+    td {
+      width: 14.28%;
+      cursor: pointer;
+      text-align: center;
+      font-weight: 200;
+      padding: 0 0.2rem;
+      @include border-radius(3px);
+      border-right: 1px dotted $dark_grey;
+      margin: .25rem;
+
+      button:hover {
+        background-color: $dark-grey;
+      }
+
+      &:last-child {
+        border: 0;
+      }
+
+      .month,
+      .year {
+        display: block;
+        margin: 0.31rem 0 0;
+      }
+
+      &.past,
+      &.future {
+        color: lighten($base-grey, 8);
+      }
+    }
+
+    .active {
+      color: $blue;
+      background-color: darken($dark-grey, 5);
+    }
+  }
+}

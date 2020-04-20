@@ -1,0 +1,257 @@
+/*!
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+.calendar-view-switch {
+  float: right;
+  display: none;
+  padding: 0.7rem 1rem;
+  margin-top: 1.5rem;
+  font-size: $medium-font;
+
+  @include breakpoint($bp__medium) {
+    display: block;
+  }
+
+  a {
+    &:hover {
+      text-decoration: none;
+      color: $blue-hover;
+
+      .icons-calendar-list {
+        @include icons-sprite('list-view-hover');
+      }
+
+      .icons-calendar-view {
+        @include icons-sprite('calendar-view-hover');
+      }
+    }
+  }
+
+  .icons-calendar-list {
+    @include inline-block;
+    @include icons-sprite('list-view');
+    @include sprite-dimensions($icons-sprites, 'list-view');
+    margin-right: .5rem;
+    margin-top: -1px;
+  }
+
+  .icons-calendar-view {
+    @include inline-block;
+    @include icons-sprite('calendar-view');
+    @include sprite-dimensions($icons-sprites, 'calendar-view');
+    margin-right: .5rem;
+    margin-top: -3px;
+  }
+}
+
+.calendar-post-filters {
+  @include breakpoint($bp__medium) {
+    padding-top: 1rem;
+    padding-left: 1.25rem;
+  }
+
+  .minimal .dropdown {
+    border-bottom: 1px solid $light-grey;
+
+    &, button {
+      width: 100%;
+      height: auto;
+      font-size: $normal-font;
+    }
+
+    @include breakpoint($bp__medium) {
+      border-bottom: 0;
+
+      &, button {
+        width: auto;
+        height: 2.125em;
+        font-size: $large-font;
+        margin: 0;
+      }
+
+      .dropdown-box {
+        font-size: $normal-font;
+      }
+    };
+  }
+
+
+}
+
+.package-selector, .client-selector {
+  position: relative;
+  float: left;
+  padding: 0 1rem;
+  min-width: 8rem;
+  width: auto;
+  height: 5rem;
+
+  p {
+    margin: 0;
+    color: $black;
+    font-size: 1.25rem;
+    line-height: 2.25rem;
+
+    &:hover {
+      color: $black-hover;
+    }
+  }
+
+  .dropdown-box {
+    position: absolute;
+    z-index: 10;
+    margin-left: -2rem;
+    width: 18.5rem;
+  }
+}
+
+.calendar-nav-separator {
+  @include icons-sprite("large-filter-div");
+  @include hide-text;
+  @include sprite-dimensions($icons-sprites, "large-filter-div");
+
+  @include breakpoint($bp__medium){
+    @include inline-block;
+  }
+  display: none;
+}
+
+.send-to-client {
+  @include border-radius(0);
+  display: block;
+  margin: 0;
+  padding: .75rem 0;
+  width: 100%;
+  height: auto;
+
+  @include breakpoint($bp__medium) {
+    margin: .25rem 0 0 1.25rem;
+    width: auto;
+    height: 2.125em;
+    @include inline-block;
+    @include border-radius(5px);
+    padding: .5rem 0.875rem 0.6875rem;
+  }
+}
+
+
+.calendar-nav {
+  @include clearfix();
+  text-align: center;
+
+  @include breakpoint($bp__medium) {
+    float: left;
+    margin-left: 1.25rem;
+  }
+
+  line-height: 3.5rem;
+}
+
+.calendar-nav-today {
+  @include inline-block;
+  vertical-align: top;
+
+  @include breakpoint($bp__medium) {
+    @include inline-block;
+    margin: 0;
+  };
+}
+
+.arrow-left .icon, .arrow-right .icon {
+  display: block;
+  padding: 0;
+}
+
+.arrow-right {
+  float: right;
+
+  @include breakpoint($bp__medium) {
+    float: none;
+  }
+
+  .icon {
+    @include icons-sprite("arrow-right");
+    @include hide-text;
+    @include sprite-dimensions($icons-sprites, "arrow-right");
+  }
+
+  &:hover .icon {
+    @include icons-sprite("arrow-right-hover");
+  }
+}
+
+.arrow-left {
+  float: left;
+
+  @include breakpoint($bp__medium) {
+    float: none;
+    margin-left: -1rem;
+  }
+
+  .icon {
+    @include icons-sprite("arrow-left");
+    @include hide-text;
+    @include sprite-dimensions($icons-sprites, "arrow-left");
+  }
+
+  &:hover .icon {
+    @include icons-sprite("arrow-left-hover");
+  }
+}
+
+.year-month {
+  margin: 1rem 0 0 1rem;
+
+  @include breakpoint($bp__medium) {
+    float: right;
+    margin: 0 1.25rem 0 0;
+    font-size: $large-font;
+    line-height: 4rem;
+  };
+
+  .month-label {
+    color: $black;
+  }
+}
+
+.week {
+  font-weight: 100;
+  font-size: 1.75rem;
+  margin: 0 0 0 1rem;
+
+  @include breakpoint($bp__medium){
+    margin: 0 auto;
+    width: 8em;
+    text-align: center;
+    line-height: 3.5rem;
+    font-size: 2rem;
+  }
+
+  .week-label {
+    color: $base-grey;
+  }
+  .week-number {
+    color: $black;
+  };
+}
+
+.calendar-week {
+  clear:both;
+}

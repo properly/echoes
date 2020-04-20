@@ -1,0 +1,56 @@
+<!--
+  ~
+  ~  Echoes - A feedback platform for social marketing.
+  ~  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU Affero General Public License as published
+  ~       by the Free Software Foundation, either version 3 of the License, or
+  ~       (at your option) any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU Affero General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU Affero General Public License
+  ~       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<div class="session-logo-large">
+  <a href="/">
+    <h1>Login</h1>
+  </a>
+</div>
+<form ng-submit="submit(user)" name="sessionForm" class="session-login-wrapper">
+  <div class="form-group">
+
+    <div class="input-group">
+      <label for="email" class="">{{'session.email' | t}}</label>
+      <input name="email" class="block-control" type="email" ng-model="user.email" ng-required="true" />
+    </div>
+
+    <div class="input-group" ng-show="isNewUser">
+      <label for="name" class="">{{'session.name' | t}}</label>
+      <input name="name" class="block-control" type="text" ng-model="user.name" ng-required="isNewUser" />
+    </div>
+
+    <div class="input-group">
+      <label for="password" class="">{{'session.password' | t}}</label>
+      <input name="password" class="block-control" type="password" ng-model="user.password" ng-required="true" ng-minlength="8"/>
+      <p ng-show="isNewUser && sessionForm.password.$error.minlength"><small>{{ 'user.password_minlength' |t }}</small></p>
+      <a ng-hide="isNewUser" class="session-forgot" href="/password">{{'session.forgotten_password' | t}}</a>
+    </div>
+
+    <div class="input-group" ng-show="isNewUser">
+      <input name="tos" class="tos" type="checkbox" ng-model="user.terms_of_use" ng-required="isNewUser" />
+      <label for="tos" class="tos-label">{{'session.tos_acceptance' |t}} <a href="/use_terms">{{'session.terms_of_use' | t}}</a></label>
+    </div>
+
+    <div class="input-group">
+      <input type="submit" class="btn btn-primary session-create pull-right" value="{{'session.' + submitLabel | t}}" />
+      <a class="btn pull-right session-create-account" ng-click="setNewUser(!isNewUser)">{{switchButtonLabel | t}}</a>
+    </div>
+  </div>
+</form>

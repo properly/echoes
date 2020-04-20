@@ -1,0 +1,57 @@
+<!--
+  ~
+  ~  Echoes - A feedback platform for social marketing.
+  ~  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU Affero General Public License as published
+  ~       by the Free Software Foundation, either version 3 of the License, or
+  ~       (at your option) any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU Affero General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU Affero General Public License
+  ~       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<div class="container">
+  <h2 class="page-title">{{ 'profile.edit' |t }}</h2>
+
+  <div class="column-large-limited">
+    <form class="block-form user" ng-submit="updateProfile(user)" name="userForm">
+      <div>
+        <label for="email">{{ 'user.email' | t }}</label>
+        <input name="email" type="text" ng-required="true" ng-model="user.email">
+      </div>
+
+      <div>
+        <label for="name">{{ 'user.name' | t }}</label>
+        <input name="name" type="text" ng-required="true" ng-model="user.name">
+      </div>
+
+      <div>
+        <label for="password">{{ 'user.password' | t }}</label>
+        <input name="password" type="password" ng-minlength="8" ng-model="user.password">
+        <p ng-show="userForm.password.$error.minlength"><small>{{ 'user.password_minlength' |t }}</small></p>
+      </div>
+
+      <div>
+        <label for="avatar">{{ 'user.avatar' | t }}</label>
+        <img ng-show="user.avatar.thumb.url" ng-src="{{ user.avatar.thumb.url }}" />
+
+        <div uploader="avatar" ng-model="user" base-url="users" inline-preview="false" append-class="dropzone-small"></div>
+      </div>
+
+      <input type="submit" class="btn pull-right btn-primary" value="{{ 'user.form.update' |t }}">
+
+    </form>
+
+    <h2 class="page-title">{{ 'profile.delete' |t }}</h2>
+    <p>{{ user.owner ? 'profile.delete_non_reversible_owner' : 'profile.delete_non_reversible' | t }}</p>
+    <button class="btn-danger" ng-click="confirmDelete(user)">{{ 'user.delete' | t }}</button>
+  </div>
+</div>

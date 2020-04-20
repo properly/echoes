@@ -1,0 +1,95 @@
+<!--
+  ~
+  ~  Echoes - A feedback platform for social marketing.
+  ~  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU Affero General Public License as published
+  ~       by the Free Software Foundation, either version 3 of the License, or
+  ~       (at your option) any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU Affero General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU Affero General Public License
+  ~       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Echoes</title>
+    <base href="/">
+    <meta name="description" content="Uma plataforma de gestão para simplificar e agilizar o envio e aprovação de conteúdo entre agência e cliente">
+    <meta name="viewport" content="width=device-width">
+    <meta property="og:title" content="Echoes"/>
+    <meta property="og:description" content="Uma plataforma de gestão para simplificar e agilizar o envio e aprovação de conteúdo entre agência e cliente" />
+
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+</head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+      <script src="bower_components/es5-shim/es5-shim.js"></script>
+      <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <div>
+      <h1>Echoes</h1>
+      <h2>
+        O Echoes é uma plataforma de gestão de conteúdo, tornando o processo de organização e aprovação dos materiais muito mais simples, rápido e intuitivo.
+      </h2>
+      <h3>Como funciona</h3>
+      <p>Você receberá um e-mail com uma lista de todos os posts que fazem parte daquele pacote e um link para acessá-los. Você não precisa de uma conta na ferramenta para visualizar este conteúdo. </p>
+      <p>Cada link identifica um e-mail único, por isso recomendamos que o mesmo não seja repassado para outras pessoas. Neste caso, peça para que um novo link seja criado para o respectivo e-mail.</p>
+      <p>Clicando no link enviado por e-mail, você chegará à página do calendário. Ela fornece uma visualização semanal com status geral da entrega. Cada post tem uma indicação pda rede social ao qual ele é destinado. O nome está lá somente para referência, ele não aparecerá em nenhum lugar da sua publicação.</p>
+      <p>Cada post tem uma página própria onde todo o histórico e feedback está disponível. É possível navegar entre os posts de uma mesma entrega através dos links no topo da página.</p>
+      <p>Deixe seu feedback e aprove o conteúdo usando as ferramentas na coluna a direita. Todo o histórico de troca de mensagens fica registrado e disponível para todos com acesso a entrega. Um novo comentário é automaticamente notificado por e-mail e todos podem vê-lo em realtime.</p>
+      <p>Se um post precisa de ajuste, uma nova revisão será feita e estará visível na mesma página. As revisões anteriores continuam acessíveis.</p>
+      <p>Ao aprovar um post, uma indicação aparecerá na própria página e no calendário.</p>
+    </div>
+
+    <script>
+      WebFontConfig = {
+        google: {
+          families: ['Roboto:400,100,300,100italic,300italic,700,700italic,400italic'],
+          timeout: 3500
+        }
+      };
+
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                  '://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+    </script>
+
+    <!-- build:js(.) scripts/oldieshim.js -->
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+    <!-- endbuild -->
+
+    <!-- config js file -->
+    <script src="/api/settings.js"></script>
+
+    </body>
+  </html>

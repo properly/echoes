@@ -1,0 +1,10 @@
+<%= render "shared/mail_stylesheet.css" %>
+<div class="main">
+  <h1><img src="https://s3-sa-east-1.amazonaws.com/sp-properly-echoes/email-assets/echoes-email-logo.png" alt="Echoes"></h1>
+  <p>Olá <%= @resource.email %>!</p>
+
+  <p><%= @resource.invited_by.email %> convidou você para o Echoes, uma plataforma para aprovação de conteúdo. Clique no link abaixo para aceitar o convite:</p>
+  <p><%= link_to "Aceitar o convite", @resource.accept_invite_link(@token), class: "btn" %></p>
+
+  <p>Se você não quer aceitar este convite, ignore este e-mail. Sua conta só será criada quando você acessar o link acima e criar uma senha.</p>
+</div>

@@ -1,0 +1,141 @@
+/*!
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+.btns-group {
+  @include clearfix();
+  width: 100%;
+}
+
+button, .btn {
+  @include box-sizing(border-box);
+  @include inline-block;
+  height: 2.125rem;
+  font-size: 1rem;
+  line-height: 1rem;
+  cursor: pointer;
+  text-align: center;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:focus {
+    background-color: $blue-focus;
+    color: $white;
+  }
+}
+
+.btn-primary {
+  background-color: $blue;
+  color: $white;
+  font-weight: 300;
+
+  &:hover {
+    background-color: $blue-hover;
+    text-decoration: none;
+  }
+}
+
+.btn-disabled {
+  background-color: transparent;
+  border: 1px solid $focus-grey;
+  color: $base-grey;
+  cursor: default;
+}
+
+.btn-minimal {
+  background: transparent;
+  color: $blue;
+
+  &:focus {
+    background-color: $focus-grey;
+  }
+
+  &:hover {
+    color: $blue-hover;
+  }
+}
+
+.btn-small {
+  margin: .25rem 0;
+  padding: 0;
+  height: 1.75rem;
+  font-size: $medium-font;
+}
+
+.btn-plus {
+  @include border-radius(2rem);
+  margin: 1rem;
+  background-color: $blue;
+  color: $white;
+  font-weight: 300;
+  font-size: $medium-font;
+
+  &:hover {
+    background-color: $blue-hover;
+  }
+}
+
+.btn-huge {
+  display: block;
+  padding: .75rem 1.5rem 1.5rem;
+  font-size: 1.5rem;
+  width: 100%;
+}
+
+.btn-cto {
+
+  @include breakpoint($screen) {
+    @include inline-block;
+    padding: 0 3rem .25rem;
+    font-size: 1.25rem;
+    line-height: 3rem;
+  }
+
+  font-size: .825rem;
+  display: block;
+  padding: .75rem 1rem;
+  background: $white;
+  color: $black;
+  text-align: center;
+  font-weight: 300;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  height: auto;
+}
+
+.btn-danger {
+  @extend .btn;
+  clear: both;
+  background: $red;
+  color: $white;
+}
+
+.btn-close {
+  padding: 1rem;
+  color: $black;
+  font-size: $medium-font;
+  font-weight: 500;
+  line-height: .5rem;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

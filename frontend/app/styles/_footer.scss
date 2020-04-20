@@ -1,0 +1,78 @@
+/*!
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+$footer-height: 2.5em;
+
+.footer-wrapper {
+  clear: both;
+}
+
+.footer {
+  @include box-sizing('border-box');
+  position: absolute;
+  bottom: 0;
+  padding: .875em 0;
+  width: 100%;
+  height: $footer-height;
+  background: $blue;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.good-morning .footer {
+  background-image: url(../images/bg/footer-blue.png);
+}
+
+.good-day .footer {
+  background-image: url(../images/bg/footer-green.png);
+}
+
+.good-afternoon .footer {
+  background-image: url(../images/bg/footer-yellow.png);
+}
+
+.good-night .footer {
+  background-image: url(../images/bg/footer-orange.png);
+}
+
+.login .footer {
+  background: transparent;
+}
+
+.footer-menu-item {
+  float: right;
+  margin-top: -.0625em;
+  color: $white;
+  text-decoration: none;
+  font-size: $small-font;
+  padding: 0 0.5rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.footer-logo {
+  @include replace-text-with-dimensions('../images/logo-properly-small.png', 0, 0);
+  @include box-sizing('border-box');
+  display: box;
+  float: right;
+  margin: 0 1.25em 0 2em;
+}

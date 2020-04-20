@@ -1,0 +1,162 @@
+/*!
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+@import "../../node_modules/normalize.css/normalize.css";
+
+@import "compass/css3/background-size";
+@import "compass/css3/background-clip";
+@import "compass/css3/box-sizing";
+@import "compass/css3/box-shadow";
+@import "compass/css3/inline-block";
+@import "compass/css3/border-radius";
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+@import "compass/css3/opacity";
+@import "compass/utilities/general/clearfix";
+@import "compass/typography/text/replacement";
+@import "compass/utilities/sprites";
+@import "susy";
+@import "breakpoint";
+
+// temp shims for old compass functions
+// TODO: refactor and remove compass dependencies
+@mixin icons-sprite($file) {
+  @include replace-text-with-dimensions("../images/icons/#{$file}.png");
+}
+
+@mixin sprite-dimensions($sprites, $file) {
+}
+
+@function sprite-file($icons-sprites, $name) {
+  @return "../images/icons/#{$name}.png";
+}
+
+$icons-sprites: "";
+
+@include border-box-sizing; // Global border-box
+
+$susy: (
+  columns : 4,
+  column-width : 3.875rem,
+  gutters : 1.25rem / 3.875rem,
+  gutter-position: after,
+  math: fluid
+);
+
+$total-columns: 4; // TODO: remove?
+$gutter-width: 1.25rem; // 1.25em gutters (20/16px)
+$small-linear: 4;
+
+$screen: 960px;
+
+$bp__xsmall: 20rem;
+$bp__small: 29rem;
+$bp__medium: 42rem;
+$bp__large: 60rem;
+$bp__xlarge: 80rem;
+
+$white: #fff;
+$off-white: #f5f6f6;
+$light-grey: #ebecec;
+$focus-grey: #dce7ee;
+$base-grey: #7d8184;
+$dark-grey: #676c70;
+$black: #3b4146;
+$black-hover: #232629;
+$blue: #5cbaff;
+$blue-hover: #4eaaeb;
+$blue-focus: #4eaaeb;
+$blue-light: #c2f6ff;
+$green: #3cfc8d;
+$green-dark: #04d45a;
+$green-light: #83ffb5;
+$red: #f16464;
+$red-light: #ffc1b8;
+$yellow: #fff647;
+
+$small-font: 0.75rem;
+$medium-font: 0.875rem;
+$normal-font: 1rem;
+$large-font: 1.25rem;
+$xlarge-font: 2.25rem;
+
+$form-border-radius: 3px;
+
+$zindex-over: 1500;
+
+@import "mixins/triangle";
+@import "mixins/target";
+@import "mixins/clearfix";
+
+@import "base/form";
+@import "base/itau";
+@import "base/typography";
+
+@import "responsive-margin";
+@import "grid";
+@import "container";
+@import "action_icons";
+@import "buttons";
+@import "carousel";
+@import "client";
+@import "datepicker";
+@import "dropdown";
+@import "dropzone";
+@import "flash";
+@import "footer";
+@import "header";
+@import "modal";
+@import "tables";
+@import "titles";
+@import "utilities";
+@import "session";
+@import "tabs";
+@import "tooltips";
+@import "off-canvas";
+@import "loader";
+
+@import "user-card";
+
+@import "calendar/entry";
+@import "calendar/grid";
+@import "calendar/list";
+@import "calendar/nav";
+
+@import "home/main-splash";
+@import "home/typography";
+@import "home/carousel";
+
+@import "post/comments";
+@import "post/content";
+@import "post/form";
+@import "post/layout";
+@import "post/post-header";
+@import "post/targets";
+
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  @include box-sizing('border-box');
+  min-width: 320px;
+  min-height: 100%;
+}

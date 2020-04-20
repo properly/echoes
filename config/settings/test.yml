@@ -1,0 +1,8 @@
+carrierwave:
+  storage: "file"
+
+default_host: "localhost"
+
+roles:
+  superadmins:
+    - admin@email.test

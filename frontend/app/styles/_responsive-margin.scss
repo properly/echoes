@@ -1,0 +1,112 @@
+/*!
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+%responsive-margin-left {
+  margin-left: 1.5rem;
+
+  @include breakpoint($bp__small) {
+    margin-left: 2rem;
+  }
+
+  @include breakpoint($bp__medium) {
+    margin-left: 3rem;
+  }
+
+  @include breakpoint($bp__large) {
+    margin-left: 4rem;
+  }
+
+  @include breakpoint($bp__xlarge) {
+    margin-left: 5rem;
+  }
+
+}
+%responsive-margin-right {
+  margin-right: 1.5rem;
+
+  @include breakpoint($bp__small) {
+    margin-right: 2rem;
+  }
+
+  @include breakpoint($bp__medium) {
+    margin-right: 3rem;
+  }
+
+  @include breakpoint($bp__large) {
+    margin-right: 4rem;
+  }
+
+  @include breakpoint($bp__xlarge) {
+    margin-right: 5rem;
+  }
+}
+
+%responsive-margin-top {
+  margin-top: 1rem;
+
+  @include breakpoint($bp__xsmall) {
+    margin-top: 1.25rem;
+  }
+
+  @include breakpoint($bp__small) {
+    margin-top: 1.5rem;
+  }
+
+  @include breakpoint($bp__medium) {
+    margin-top: 2rem;
+  }
+
+  @include breakpoint($bp__large) {
+    margin-top: 3rem;
+  }
+
+  @include breakpoint($bp__xlarge) {
+    margin-top: 4rem;
+  }
+}
+
+%responsive-margin-bottom {
+  margin-bottom: 1rem;
+
+  @include breakpoint($bp__xsmall) {
+    margin-bottom: 1.5rem;
+  }
+
+  @include breakpoint($bp__small) {
+    margin-bottom: 2rem;
+  }
+
+  @include breakpoint($bp__medium) {
+    margin-bottom: 3rem;
+  }
+
+  @include breakpoint($bp__large) {
+    margin-bottom: 4rem;
+  }
+
+  @include breakpoint($bp__xlarge) {
+    margin-bottom: 5rem;
+  }
+}
+
+%responsive-margins {
+  @extend %responsive-margin-left;
+  @extend %responsive-margin-right;
+}

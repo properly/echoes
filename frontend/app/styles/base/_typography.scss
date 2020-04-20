@@ -1,0 +1,62 @@
+/*!
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+@font-face {
+  font-family: 'Emoji';
+  /* Reference: http://webcache.googleusercontent.com/search?q=cache:qZFkZruB2HwJ:https://coderwall.com/p/ruv9hq+&cd=2&hl=en&ct=clnk
+   */
+
+  /* Chrome on OS X reports that it uses Apple Color Emoji (if it's available)
+   * but renders a transparent character. Hence the fallback doesn't work.
+   * If no emoji fonts are available, a subset of Symbola will be used.
+   * No SVG is included since iOs has emoji in all recent incarnations.
+   * */
+  src: local('Apple Color Emoji'),
+       local('Android Emoji'),
+       local('Segoe UI'),
+       local(EmojiSymbols),
+       local(Symbola),
+       url('../fonts/Symbola-emoji.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Symbola-emoji.woff') format('woff'),
+       url('../fonts/Symbola-emoji.ttf') format('truetype');
+
+  /* Only apply emoji font for emoji unicode blocks */
+  unicode-range: U+1F300-1F5FF, U+1F600-1F64F, U+1F680-1F6FF, U+2600-26FF;
+}
+
+
+body {
+  color: $base-grey;
+  font-weight: 300;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  outline: none;
+  color: $blue;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+}

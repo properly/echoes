@@ -1,0 +1,114 @@
+/*!
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+.dropdown {
+  @include inline-block;
+  position: relative;
+
+  .block & {
+    display: block;
+  }
+}
+
+.dropdown-box-list {
+  margin: 0;
+  padding: .25rem 0;
+
+  &.has-scroll {
+    @include box-shadow(inset 0rem -1rem 1rem -1rem rgba(0,0,0,.4), inset 0rem 1rem 1rem -1rem rgba(0,0,0,.4));
+  }
+  &.has-scroll.scroll-top {
+    @include box-shadow(inset 0rem -1rem 1rem -1rem rgba(0,0,0,.4), inset 0rem 1rem 1rem -1rem rgba(0,0,0,.0));
+  }
+  &.has-scroll.scroll-bottom {
+    @include box-shadow(inset 0rem -1rem 1rem -1rem rgba(0,0,0,.0), inset 0rem 1rem 1rem -1rem rgba(0,0,0,.4));
+  }
+
+}
+
+.dropdown-box-1-btn {
+  padding-bottom: 3.6rem;
+}
+
+.dropdown-box {
+  @include box-shadow(0 0 .5rem rgba(55,55,55,0.1));
+  @include border-radius(.1875rem);
+  @include arrow(.3125rem, "bottom", $base-grey, transparent, 1.5rem);
+  position: absolute;
+  left: .25rem;
+  z-index: $zindex-over - 5; // below modals etc.
+  display: none;
+  clear: left;
+  min-width: 10rem;
+  background-color: $base-grey;
+
+  ul {
+    overflow-y: auto;
+    max-height: 18rem;
+  }
+
+  .open & {
+    display: block;
+  }
+
+
+  li {
+    list-style-type: none;
+  }
+
+  a {
+    display: block;
+    padding: .5rem 1.5rem .5rem 1rem;
+    border-bottom: 1px dotted $dark-grey;
+    color: $white;
+
+    &.active {
+      color: lighten($base-grey, 16);
+    }
+
+    &:hover {
+      background-color: $dark-grey;
+      text-decoration: none;
+    }
+
+  }
+
+  li:last-child a {
+    border-bottom: none;
+  }
+
+}
+
+.dropdown-buttons {
+  position: absolute;
+  bottom: 0;
+  padding: .25rem .5rem .125rem;
+  width: 100%;
+  background-color: $base-grey;
+  text-align: center;
+
+  a:hover {
+    background-color: $blue-hover;
+  }
+}
+
+.dropdown-small {
+  width: 9rem;
+}

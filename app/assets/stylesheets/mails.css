@@ -1,0 +1,109 @@
+/*
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+.main {
+  margin: 0 auto;
+  max-width: 350px;
+  color: #939799;
+  font-weight: 300;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 24px;
+}
+
+.package-wrap {
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #f5f6f6;
+}
+
+.label {
+  color: #a9acae;
+  text-transform: uppercase;
+  font-weight: 100;
+  font-size: 12px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+h2 {
+  margin: 0 0 40px;
+  color: #5cbbff;
+  font-weight: 400;
+  font-size: 28px;
+}
+
+h3 {
+  margin: 0 0 40px;
+  color: #676c70;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+h3 small {
+  font-size: 16px;
+}
+
+.btn {
+  display: block;
+  padding: 6px 22px;
+  border-radius: 4px;
+  background-color: #5cbbff;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.btn:hover {
+  background-color: #40a9f5;
+}
+
+table {
+  border-collapse:collapse;
+  margin-bottom: 16px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+tr td {
+  border: 0;
+  border-top: 1px solid #d5d7d7;
+  margin: 0;
+}
+
+table a {
+  text-decoration: none;
+  color: #a9acae;
+  display: block;
+  padding: 8px 8px 8px 0;
+}
+
+table a:hover {
+  text-decoration: underline;
+}
+
+.name-col {
+  width: 100%;
+}
+
+.name-col a {
+  color: #676c70;
+}

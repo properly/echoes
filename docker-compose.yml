@@ -1,0 +1,75 @@
+version: '2'
+volumes:
+  gems:
+    driver: local
+
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - ./docker/mysql/initdb.d:/docker-entrypoint-initdb.d:ro
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: echoes_development
+      MYSQL_ROOT_PASSWORD: root
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend/Dockerfile
+    volumes:
+      - ./frontend:/app
+    command: npm run watch
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ./bin/start.sh
+    ports:
+      - 3000:3000
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+      - ./frontend/dist:/usr/src/app/public
+      - gems:/usr/local/bundle
+    stdin_open: true
+    tty: true
+    links:
+      - db
+      - redis
+    environment:
+      DATABASE_URL: mysql2://root:root@db:3306
+      REDIS_URL: redis://redis:6379/12
+      RAILS_ENV: development
+      RACK_ENV: development
+      RAILS_LOG_TO_STDOUT: enable
+    depends_on:
+      - db
+      - redis
+
+  sidekiq:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bundle exec sidekiq -r .
+    environment:
+      REDIS_URL: redis://redis:6379/12
+      DATABASE_URL: mysql2://root:root@db:3306
+      RAILS_ENV: development
+      RACK_ENV: development
+      RAILS_LOG_TO_STDOUT: enable
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+      - gems:/usr/local/bundle
+    depends_on:
+      - db
+      - redis
+
+  redis:
+    image: redis:3.2.4-alpine
+    ports:
+      - 6379:6379
+    command: redis-server --appendonly yes

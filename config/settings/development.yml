@@ -1,0 +1,8 @@
+carrierwave:
+  storage: "file"
+
+fog:
+  provider: "AWS"
+
+default_host: "localhost:9000"
+

@@ -1,0 +1,307 @@
+pt-BR:
+  add: Adicionar
+  create: Criar
+  edit: Editar
+  cancel: Cancelar
+  remove: Remover
+  save: Salvar
+  send: Enviar
+  back: Voltar
+  support: Suporte
+  reactivate: Reativar
+  removal_confirmation: Quero remover mesmo assim
+  select: Selecione
+
+  activerecord:
+    errors:
+      models:
+        post:
+          attributes:
+            scheduled_at:
+              after_option_date: deve ser no futuro
+            status:
+              inclusion: não é valido
+    attributes:
+      user:
+        name: Nome
+        email: E-mail
+        password: Senha
+        organization: Empresa
+        reset_password_token: Token
+      organization:
+        name: Nome
+        slug: Permalink
+      client:
+        name: Nome
+        organization: Empresa
+      post:
+        name: Nome do Post
+        package: Entrega
+        client: Projeto
+        scheduled_at: Data
+      package:
+        name: Nome
+        client: Projeto
+      comment:
+        body: Comentário
+
+  errors:
+    messages:
+      generic_error: Ocorreu um erro! Tente de novo ou entre em contato conosco em suporte@properly.com.br
+      unauthorized: Você não tem autorização para acessar essa página
+      extension_white_list_error: tem extensão inválida
+      session_failed: Email ou senha inválido
+      password_missing: Senha é obrigatório
+      csrf_invalid: Erro de autenticação, recarregue a página novamente.
+      no_user_found: Não foi encontrado nenhum usuário com este e-mail.
+      forbidden: Você não tem permissão para acessar o conteúdo dessa página
+      revision:
+        post_cannot_accept_revision: pode ser adicionado ao post com status %{status}
+
+  calendar:
+    week: Semana
+    today: Hoje
+    next: Próximo
+    previous: Anterior
+    view-calendar: Ver como calendário
+    view-list: Ver como lista
+
+  comment:
+    add: Comentar
+    mailer:
+      digest:
+        subject: "Novos comentários"
+      notification:
+        subject: "%{client} | %{package}: Novo comentário"
+
+  terms_of_use: Termos de uso
+  source_code: Código-fonte
+
+  user:
+    name: Nome Completo
+    password: Senha
+    password_minlength: A senha deve ter no mínimo 8 caracteres
+    invitation_status: Status
+    email: E-mail
+    avatar: Avatar
+    edit: Meu perfil
+    delete: Encerrar conta
+    updated: Perfil atualizado!
+    password_sent: Um e-mail foi enviado com instruções para você resetar sua senha.
+    invitation_accepted: Uma conta foi criada, faça seu login para acessar o Echoes
+    form:
+      update: Atualizar
+      cancel: Fechar
+      extra_info_header: Complete o seu cadastro
+      extra_info_intro: Para completar o seu perfil, preencha seu nome.
+    invitation:
+      already_registered: Este usuário já possui uma conta em outra empresa. Ele deve remover esta conta ou um outro e-mail deve ser inserido.
+      already_member: Este usuário já é membro dessa organização.
+
+  organization:
+    intro: Crie uma conta para a sua empresa e convide sua equipe para compartilhar projetos.
+    edit: Empresa
+    new: Nova Empresa
+    name: Nome da Empresa
+    slug: Permalink
+    updated: Empresa atualizada
+    members:
+      list: Membros
+      invite_people: Convide pessoas
+      accept_invitation: Aceitar convite
+      invite: Convide
+      accept: Aceitar
+      revoke: Revogar convite
+      remove: Remover
+      owner: Admin
+      pending: Pendente
+      removal:
+        header: Remover membro
+        description: O usuário não poderá mais acessar o Echoes se removido.
+
+  session:
+    already_registered: Já tenho uma conta
+    create_new_account: Quero me cadastrar
+    email: E-mail
+    name: Nome
+    forgotten_password: Esqueci minha senha
+    password: Senha
+    sign_in: Login
+    sign_up: Criar uma conta
+    sign_out: Logout
+    terms_of_use: termos de uso
+    tos_acceptance: Li e aceito os
+    reset_password: Resetar senha
+    send_email: Enviar e-mail
+
+  profile:
+    edit: Editar Perfil
+    delete: Encerrar conta
+    delete_non_reversible:  O encerramento da conta é final e não pode ser desfeito.
+    delete_non_reversible_owner: O encerramento da conta é final e não pode ser desfeito. Qualquer assinatura associada será cancelada e todo o conteúdo, bem como empresa e usuários, serão removidos.
+    confirm: Cancele sua conta
+    confirm_deletion: Confirme o cancelamento
+    cancel: Voltar
+    checkbox_label: Sim, quero encerrar a minha conta.
+
+  package:
+    create: Criar entrega
+    manage: Gerenciar entregas
+    new: Nova entrega
+    send_for_review:
+      resend: Re-enviar entrega para cliente
+      send: Enviar entrega para cliente
+    select_to_send: Selecione uma entrega para enviar
+    select: Selecione uma entrega
+    select_from_list: Selecionar entrega existente
+    select_client: –––––
+    name: Nome
+    intro: Uma entrega é um conjunto de posts que deverá ser enviado ao cliente de uma só vez para aprovação, por exemplo o conteúdo de uma semana ou um pequeno projeto
+    add: Adicionar entrega
+    created: Entrega criada com sucesso
+    all: Todas as entregas
+
+  client:
+    name: Nome
+    create: Criar projeto
+    created: Projeto criado com sucesso
+    manage: Gerenciar projetos e entregas
+    new: Novo projeto
+    select: Selecione um projeto
+    select_from_list: Selecionar projeto existente
+    select_one: Selecione um projeto
+    assign_users: Usuários com acesso ao projeto
+    invite_users: Convide mais pessoas
+    user_count:
+      zero: 'Esse projeto não tem nenhum membro'
+      one: 'Esse projeto tem %{count} membro'
+      other: 'Esse projeto tem %{count} membros'
+    add: Adicionar projeto
+    removal_disabled: Só o administrador da conta pode remover projetos
+    intro: Inclua aqui um cliente ou uma conta da qual você faz aprovação de conteúdo com frequência
+    removal:
+      header: Remover Item
+      description: 'Se você remover %{name}, todos os posts e arquivos associados a ele serão apagados também.'
+    total_clients:
+      zero: 'Nenhum Projeto'
+      one: '1 Projeto'
+      other: '%{count} Projetos'
+    total_packages:
+      zero: 'Nenhuma Entrega'
+      one: '1 Entrega'
+      other: '%{count} Entregas'
+    total_posts:
+      zero: 'Nenhum Post'
+      one: '1 Post'
+      other: '%{count} Posts'
+    mailer:
+      assignment:
+        subject: 'Você foi adicionado ao projeto %{client} de %{organization}'
+
+
+  post:
+    revision: Revisão
+    reopen: Revogar aprovação
+    approve: Aprovar
+    remove: Remover post
+    confirm_remove: Quero mesmo remover este post
+    status:
+      approved: Aprovado
+      refused: Reprovado
+      scheduled: Agendado
+      adjustment_pending: Ajustes
+      adjusted: Nova Revisão
+      schedule_canceled: Cancelado
+      published: Publicado
+      publication_error: Erro
+      mailer:
+        approved: '%{client}: %{post} (%{package}) foi aprovado'
+        approval_revoked: '%{client}: %{post} (%{package}) teve a aprovação revogada'
+    create-post: Criar post
+    scheduled_date: Data
+    scheduled_time: Horário
+    at_scheduled_time: às
+    client: Projeto
+    reference: Nome do post
+    package: Entrega de conteúdo
+    editing: 'Editando: %{name}'
+    add: Adicionar post
+    removed: Post removido
+    previous: Anterior
+    next: Próximo
+    removal:
+      header: Remover Post
+      description: 'Se você remover %{name}, todos os revisões, comentários e arquivos associados a ele serão apagados também.'
+
+  content:
+    target: Selecione a rede
+    body: Texto
+    image: Imagem / Video
+    add: Adicionar novo conteúdo
+    remove: Remover conteúdo
+    targets:
+      facebook: Facebook
+      twitter: Twitter
+      instagram: Instagram
+      generic: Outros
+
+  revision:
+    new: Nova Revisão
+    edit: Editando Revisão
+    finish: Finalizar
+    empty: Você não tem nenhuma revisão para este post
+    click_to_add: Clique aqui para adicionar
+    removal:
+      header: "Remover Revisão"
+      description: "Se você remover esta revisão, todos os comentários também serão apagados."
+
+  uploader:
+    click_drag: Clique ou arraste uma imagem / video
+    allowed_extensions: (jpg gif png / mp4)
+    image_processing: Processando imagem / video
+
+  devise:
+    failure:
+      user:
+        unauthenticated: Você precisa estar logado para ter acesso
+    mailer:
+      reset_password_instructions:
+        subject: Instruções para resetar sua senha
+      invitation_instructions:
+        subject: 'Você foi convidado para o Echoes!'
+        user_subject: 'Você foi convidado para o Echoes!'
+
+  access_token:
+    link: link de acesso
+    link_list_intro: O e-mail de accesso já foi enviado para os endereços listados abaixo. Caso a pessoa não tenha recebido, o link ao lado pode ser passado para ela acessar a entrega.
+    send_package: Enviar entrega
+    email: E-mail
+    sent_emails: A entrega já foi enviada para
+    mailer:
+      share_instructions:
+        subject: '%{client} | %{package}: Arquivos para aprovação'
+
+  homepage:
+    features:
+      add_post:
+        title: Conteúdo na nuvem
+        body: Faça upload e adicione todo o conteúdo com datas e redes a serem publicadas. Em poucos minutos, toda a entrega do lote de posts fica organizada e centralizada em um único lugar e pode ser acessada de qualquer dispositivo.
+      calendar:
+        title: Visualização de calendário
+        body: Tenha uma visão macro do seu calendário editorial e uma sinalização clara do status de aprovação de cada um dos conteúdos. É possível também filtrar a visualização por projeto ou lotes de entrega.
+      email:
+        title: Aprovação sem login
+        body: Envie o conteúdo para aprovação do cliente com apenas um clique. Ele recebe um email com um link de acesso ao conteúdo, sem necessidade de fazer login.
+      post:
+        title: Feedback real time
+        body: Faça comentários e aprove os conteúdos no mesmo lugar. Todo o histórico de troca de mensagens fica registrado e disponível para todos os membros do projeto. Qualquer atividade nos comentários é automaticamente notificada por email.
+
+  tooltips:
+    post_reference: Este campo serve como uma referência para identificar o post no calendário
+    client: Um projeto é, por exemplo, um cliente ou uma conta para o qual você entrega conteúdo com frequência
+    package: Uma entrega é um conjunto de posts que deverá ser enviado ao cliente de uma só vez para aprovação, por exemplo o conteúdo de uma semana ou um pequeno projeto
+
+  menu:
+    secondary: Menu
+    profile: Perfil
+    settings: Settings

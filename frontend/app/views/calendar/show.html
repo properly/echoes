@@ -1,0 +1,35 @@
+<!--
+  ~
+  ~  Echoes - A feedback platform for social marketing.
+  ~  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU Affero General Public License as published
+  ~       by the Free Software Foundation, either version 3 of the License, or
+  ~       (at your option) any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU Affero General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU Affero General Public License
+  ~       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<div class="calendar-view-switch">
+  <a class="" ng-click="view = 'list'" ng-hide="view == 'list'">
+    <i class="icons-calendar-list"></i>
+    {{'calendar.view-list' | t}}
+  </a>
+  <a class="" ng-click="view = 'calendar'" ng-show="view == 'list'">
+    <i class="icons-calendar-view"></i>
+    {{'calendar.view-calendar' | t}}
+  </a>
+</div>
+
+<div ng-if="!isClient" ng-include="'views/calendar/_post-filters.html'"></div>
+
+<div class="calendar-template" posts-calendar ng-model="posts" week="week" filter="package" client-id="{{clientId}}" package-id="{{packageId}}" uuid="{{uuid}}"
+  admin="true" view="{{view}}"></div>

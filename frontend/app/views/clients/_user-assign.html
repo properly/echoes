@@ -1,0 +1,64 @@
+<!--
+  ~
+  ~  Echoes - A feedback platform for social marketing.
+  ~  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU Affero General Public License as published
+  ~       by the Free Software Foundation, either version 3 of the License, or
+  ~       (at your option) any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU Affero General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU Affero General Public License
+  ~       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<div class="client-user-meta">
+  <div class="client-users" ng-hide="editUsers">
+    <small>{{ 'client.user_count' | t:{ count: client.user_count } }}</small>
+  </div>
+</div>
+
+<div ng-show="editUsers" class="manage-client-users">
+  <a class="close-button" ng-click="toggleUserAssign()">X</a>
+  <div class="list-client-users">
+    <h5>{{ 'client.assign_users' | t }}</h5>
+    <ul class="client-users">
+      <li ng-repeat="user in users" class="user-card" ng-class="{ selected: user.has_permission }">
+      <label>
+        <input
+        type="checkbox"
+        ng-checked="user.has_permission || user.owner"
+        ng-disabled="user.owner || user.id == currentUser.id"
+        ng-click="togglePermission($event, user, client)"
+        >
+        <span class="user-avatar" ng-class="{'is-user': user.is_user}">
+          <span ng-hide="user.avatar.thumb.url">
+            {{user.email[0]}}
+          </span>
+          <img ng-src="{{user.avatar.thumb.url}}" alt="">
+        </span>
+        <h4 class="user-name">
+          {{user.name || user.email}}
+          <small ng-hide="user.invitation_accepted_at || user.owner"> &mdash; {{'organization.members.pending' | t}}</small>
+        </h4>
+      </label>
+      </li>
+    </ul>
+  </div>
+
+  <div
+    ng-show="currentUser.owner"
+    class="add-client-users"
+    invite-user-form
+    users="users"
+    organization="organization"
+    client="client"
+    added-callback="assignUser"></div>
+
+</div>

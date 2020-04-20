@@ -1,0 +1,70 @@
+/*!
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+.tabs {
+  display: none;
+
+  @include breakpoint($bp__medium) {
+    display: block;
+    @include span(1 of 4 (0));
+  }
+
+  ul {
+    @extend %responsive-margin-left;
+    padding: 0;
+    margin-top: 0;
+    list-style-type: none;
+  }
+
+  ul > li {
+    text-align: left;
+    border-bottom: 1px solid $focus-grey;
+
+    &:first-child {
+      border-top: 1px solid $focus-grey;
+    }
+
+    a {
+      display: block;
+      padding: .5rem .75rem .5rem 0;
+
+      &:hover {
+        color: $base-grey;
+        text-decoration: none;
+      }
+    }
+
+    &.active {
+      a {
+        color: $base-grey;
+      }
+
+    }
+  }
+}
+
+.tab-content {
+  @include breakpoint($bp__medium) {
+    @include span(3 of 4 (0));
+    max-width: $bp__medium;
+  }
+
+  @include clearfix;
+}

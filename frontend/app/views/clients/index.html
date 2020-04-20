@@ -1,0 +1,40 @@
+<!--
+  ~
+  ~  Echoes - A feedback platform for social marketing.
+  ~  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU Affero General Public License as published
+  ~       by the Free Software Foundation, either version 3 of the License, or
+  ~       (at your option) any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU Affero General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU Affero General Public License
+  ~       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<div class="container">
+  <h2 class="page-title">{{ 'client.select_one' | t }}</h2>
+  <ul class="client-list">
+    <li class="client-wrapper client-box" ng-repeat="client in clients">
+    <a ng-href="/clients/{{client.id}}">
+      <h3>{{client.name}}</h3>
+      <footer>
+        <p>{{ 'client.total_packages' | t:{ count: client.packagesCount()} }}</p>
+        <p>{{ 'client.total_posts' | t:{ count: client.postsCount()} }}</p>
+      </footer>
+    </a>
+    </li>
+    <li class="client-wrapper" id="add-client-box">
+    <a ng-click="newClientModal()">
+      <em class="icons-add"></em>
+      {{ 'client.add' | t }}
+    </a>
+    </li>
+  </ul>
+</div>

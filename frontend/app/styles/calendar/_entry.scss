@@ -1,0 +1,266 @@
+/*!
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+.entry-target {
+  @include inline-block;
+  @include hide-text;
+
+  &.facebook {
+    @include hide-text;
+    @include icons-sprite("target-facebook-s");
+    @include sprite-dimensions($icons-sprites, "target-facebook-s");
+  }
+
+  &.instagram {
+    @include icons-sprite("target-instagram-s");
+    @include sprite-dimensions($icons-sprites, "target-instagram-s");
+  }
+
+  &.generic {
+    @include icons-sprite("target-generic-s");
+    @include sprite-dimensions($icons-sprites, "target-generic-s");
+  }
+
+  &.twitter {
+    @include icons-sprite("target-twitter-s");
+    @include sprite-dimensions($icons-sprites, "target-twitter-s");
+  }
+}
+
+.entry-scheduled-time {
+  display: block;
+  float: left;
+  vertical-align: top;
+  font-size: .625em;
+  color: $focus-grey;
+}
+
+.entry-status {
+  @include border-radius(2px);
+  display: block;
+  padding: .125em .25em;
+}
+
+.entry-status-small {
+  @extend .entry-status;
+  float: left;
+  clear: left;
+  font-size: .625em;
+  margin: .4rem 0 .25rem;
+}
+/*
+# refused: red
+# adjustment_pending: yellow
+# adjusted: white
+# approved: green
+# scheduled: dark blue
+# schedule_canceled: light red outline
+# published: light blue
+# publication_error: intense red outline */
+
+.entry-refused {
+  background-color: $red;
+  color: $black;
+}
+
+.entry-approved {
+  background-color: $green;
+  color: $black;
+}
+
+.entry-adjustment_pending {
+  background-color: $yellow;
+  color: $black;
+}
+
+.entry-adjusted {
+  background-color: $white;
+  color: $black;
+}
+
+.entry-scheduled {
+  background-color: $blue-focus;
+  color: $black;
+}
+
+.entry-schedule_canceled {
+  background-color: $red-light;
+  color: $black;
+}
+
+.entry-published {
+  border: 1px solid $green-light;
+  color: $green-light;
+}
+
+.entry-publication_error {
+  border: 1px solid $red;
+  color: $red;
+}
+
+
+.entry-container {
+  padding: .25em;
+  list-style-type: none;
+}
+
+// Grid Entry
+.entry {
+  @include border-radius($form-border-radius);
+  background-color: lighten($black, 11);
+  margin: .325rem 0;
+
+  .entry-meta {
+    @include clearfix;
+    min-height: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  &.approved {
+    background-color: $black;
+  }
+
+  .entry-target {
+    float: right;
+  }
+
+  p {
+    margin: 0;
+    font-weight: 400;
+    line-height: 1em;
+  }
+
+  .post-name {
+    font-size: .9375em;
+  }
+
+  .post-package {
+    color: lighten($base-grey, 16);
+    font-size: $small-font;
+  }
+
+  a {
+    display: block;
+    padding: .5em;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.entry-container:hover .add-post-small {
+  display: block;
+}
+
+
+.add-post-small {
+  @include border-radius(2em);
+  display: none;
+  margin: 1rem auto;
+  width: 2rem;
+  height: 2rem;
+  background-color: $blue;
+  color: $white;
+  line-height: 2rem;
+  text-align: center;
+
+  &:hover {
+    background-color: $blue-hover;
+    text-decoration: none;
+  }
+}
+
+// List entry
+.list-entry-container {
+  list-style: none;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.list-entry {
+  position: relative;
+  padding-left: 3.33rem;
+  margin-bottom: 1rem;
+  font-size: $medium-font;
+
+  .entry-meta {
+    @include inline-block;
+    margin-right: 0.5rem;
+
+    .entry-status {
+      position: absolute;
+      top: 3px;
+      left: 0;
+      margin-top: 0;
+    }
+  }
+
+  .entry-scheduled-time {
+    @include inline-block;
+    float: none;
+    vertical-align: middle;
+    color: $base-grey;
+    font-size: $small-font;
+    margin-right: .4rem;
+  }
+
+  .post {
+    @include inline-block;
+    margin: 0;
+    font-weight: 500;
+
+    a {
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      span {
+        font-weight: 300;
+        color: $base-grey;
+        font-size: $small-font;
+      }
+    }
+  }
+}
+
+.list-add-post {
+  font-size: $medium-font;
+  color: $blue;
+
+  @include breakpoint($bp__small) {
+    visibility: hidden;
+  }
+
+  .plus-icon {
+    margin-right: 0.5rem;
+  }
+
+  &:hover {
+    color: $blue-hover;
+    text-decoration: none;
+  }
+}
+
+.list-day:hover .list-add-post {
+  visibility: visible;
+}

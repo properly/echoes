@@ -1,0 +1,320 @@
+/*!
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+.client-list {
+  @include clearfix;
+  padding: 2rem 0 0;
+  list-style: none;
+}
+
+.client-wrapper {
+  @include border-radius(8px);
+
+
+  overflow: hidden;
+  margin-bottom: $gutter-width;
+  height: 19.5rem;
+
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: $base-grey;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.client-box {
+
+  @include breakpoint($bp__xsmall + 1rem) {
+    margin-left: 0;
+  }
+  float: left;
+  margin-right: 1rem;
+  margin-left: -1rem;
+  width: 19rem;
+  background-color: $light-grey;
+
+  h3 {
+    @include icons-sprite('bg-client');
+    margin: 0;
+    padding: 5.9em 0 0 0.4em;
+    height: 7.52em;
+    border-bottom: 1px solid $white;
+    color: $white;
+    font-weight: 300;
+    font-size: $xlarge-font;
+  }
+
+  &:hover {
+    h3 {
+      @include icons-sprite('bg-client-hover');
+    }
+  }
+
+  footer {
+    font-size: $medium-font;
+
+    p {
+      @include box-sizing('border-box');
+      @include inline-block;
+      margin: 0;
+      padding-left: 1.5em;
+      width: 49%;
+      height: 3em;
+      line-height: 3em;
+
+      &:first-child {
+        border-right: 1px solid $white;
+      }
+    }
+  };
+}
+
+#add-client-box {
+
+  @include breakpoint($bp__xsmall + 1rem) {
+    margin-left: 0;
+  }
+  float: left;
+  margin-right: 1rem;
+  margin-left: -1rem;
+  width: 19rem;
+  border: 2px solid $light-grey;
+  text-align: center;
+
+  a {
+    padding-top: 7.75em;
+    color: darken($light-grey, 10);
+
+    .icons-add {
+      @include icons-sprite('add');
+      @include sprite-dimensions($icons-sprites, 'add');
+      display: block;
+      margin: 0 auto 0.8em;
+    }
+
+    &:hover {
+      color: $blue;
+
+      .icons-add {
+        @include icons-sprite('add-hover');
+      }
+    }
+  };
+}
+
+.client-numbers-overview {
+
+  @include breakpoint(0 $bp__small) {
+    display: table;
+    float: none;
+    clear: both;
+    margin-bottom: 3rem;
+    width: 100%;
+    text-align: center;
+
+    li {
+      display: table-cell;
+      padding: 0.375rem .56rem 0.187rem;
+      font-size: .75rem;
+    }
+  }
+  float: right;
+  padding: 0;
+  list-style: none;
+
+  li {
+    @include inline-block;
+    padding: 0.375rem 1.56rem 0.187rem;
+    border-right: 1px solid $light-grey;
+    color: lighten($base-grey, 16%);
+    font-size: $medium-font;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+      border: 0;
+    }
+  }
+}
+
+.client-manage-list {
+  clear: both;
+  padding: 0;
+  list-style: none;
+
+  .item-manage {
+    @include clearfix;
+    @include inline-block;
+    width: 100%;
+  }
+
+  .client-manage {
+    margin-bottom: 0;
+    padding-bottom: 1.2rem;
+    border-bottom: 4px solid $blue;
+    color: $black;
+    font-weight: 100;
+    font-size: 1.75rem;
+  }
+
+  .edit {
+    @include inline-block;
+    background: lighten($light-grey, 6);
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+
+    @include inline-block;
+
+    @include breakpoint($bp__small) {
+      font-size: $xlarge-font;
+    }
+    margin: 0;
+    vertical-align: bottom;
+    font-weight: 100;
+    font-size: $large-font;
+    font-size: inherit;
+  }
+
+  .manage-buttons {
+    @include inline-block;
+    float: right;
+    vertical-align: baseline;
+
+    .sub-counter {
+      @include inline-block;
+
+      margin: 0;
+      margin-left: 1.8rem;
+      color: lighten($base-grey, 17%);
+      vertical-align: baseline;
+      font-weight: 300;
+      font-size: $medium-font;
+    }
+
+    a {
+      @include inline-block;
+      vertical-align: -5%;
+    }
+
+  }
+
+  .package-list {
+    margin-bottom: 5.375rem;
+    list-style: none;
+  }
+
+  ul { padding: 0; }
+
+}
+
+.client-manage-list-package {
+
+  @include breakpoint($bp__small) {
+    font-size: $large-font;
+  }
+  padding: 0.9rem 0.187rem;
+  border-bottom: 1px solid $light-grey;
+  font-size: $normal-font;
+
+  &:last-child {
+    border: 0;
+  }
+}
+
+.client-manage-item {
+  padding-left: .75rem;
+  border-left: 4px solid $light-grey;
+
+  .editing & {
+    padding: 1rem;
+    background: #fafafa;
+  }
+}
+
+.client-user-meta {
+  margin: 0;
+  line-height: 0;
+  small {
+    font-size: $small-font;
+  }
+}
+
+.manage-client-users {
+  @include clearfix;
+  @include border-radius(.25rem);
+  padding: 1rem;
+  background: lighten($light-grey, 6);
+  position: relative;
+  clear: both;
+
+  .close-button {
+    @extend .btn-close;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+.list-client-users {
+  @include breakpoint($bp__small $bp__medium) {
+    @include span(1 of 2 ( 10 1));
+  }
+
+  @include breakpoint($bp__medium) {
+    @include span(2 of 3  ( 10 1));
+  }
+
+  h5 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 300;
+    font-size: $large-font;
+  }
+}
+
+.add-client-users {
+  @include breakpoint($bp__small $bp__medium) {
+    @include span(1 of 2 ( 10 1));
+    margin-right: 0;
+  }
+
+  @include breakpoint($bp__medium) {
+    @include span(1 of 3 (10 1));
+    margin-right: 0;
+  }
+
+  h2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 300;
+    font-size: $large-font;
+  }
+}

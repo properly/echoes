@@ -1,0 +1,47 @@
+<!--
+  ~
+  ~  Echoes - A feedback platform for social marketing.
+  ~  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU Affero General Public License as published
+  ~       by the Free Software Foundation, either version 3 of the License, or
+  ~       (at your option) any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU Affero General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU Affero General Public License
+  ~       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<div ngf-drop="onFileSelect($files, ngModel)" ng-file-drag-over-class="dragover"
+  ng-show="dropSupported" class="dropzone {{appendClass}}">
+
+  <input type="file" ngf-select="upload.abort(); onFileSelect($files, ngModel)">
+  <div class="desc" ngf-drop-available="dropSupported=true" ng-hide="processing() || progress || showPreview()">
+    <div class="symbol"></div>
+    <p class="primary-info">{{'uploader.click_drag' | t}}</p>
+    <p class="secondary-info">(jpg, gif, png / mp4)</p>
+  </div>
+
+  <div class="loader" ng-show="loading()">
+    <p class="progress">{{progress | number:0}} %</p>
+    <div class="bar-bg">
+      <b class="bar" style="width: {{progress}}%"></b>
+    </div>
+  </div>
+
+  <div class="processing" ng-show="processing()">
+    <p>{{ 'uploader.image_processing' | t }}</p>
+  </div>
+
+  <div ng-show="showPreview()" class="attachment-thumb">
+    <img ng-if="ngModel.image.url"  ng-src="{{imageUrl()}}" class="preview-image" alt="">
+    <video ng-if="ngModel.video.url" ng-src="{{ngModel.video.url}}" controls class="preview-video"></video>
+  </div>
+</div>
+

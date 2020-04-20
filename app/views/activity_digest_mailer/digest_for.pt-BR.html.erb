@@ -1,0 +1,36 @@
+<%= render "shared/mail_stylesheet.css" %>
+
+<div class="main">
+  <h1><img src="https://s3-sa-east-1.amazonaws.com/sp-properly-echoes/email-assets/echoes-email-logo.png" alt="Echoes"></h1>
+  <p>Existem novos comentários para você.</p>
+
+  <% @feed.keys.each do |post| %>
+
+    <div class="package-wrap">
+      <p class="label">Projeto / Entrega</p>
+      <h2> <%= post.package.client.name %> / <%= post.package.name %> </h2>
+      <p class="label">Post</p>
+      <h2> <%= post.name %> </h2>
+
+      <% @feed[post].sort_by(&:created_at).each do |comment| %>
+        <div class="comment">
+          <h5 class="comment-author">
+            <span class="comment-author-avatar">
+              <% if comment.comment_author.respond_to? :avatar and comment.comment_author.avatar.present? %>
+                <%= image_tag comment.comment_author.avatar.thumb.url%>
+              <% else %>
+                <span><%= comment.comment_author.email[0] %></span>
+              <% end -%>
+            </span>
+            <span class="comment-author-email"><%= comment.comment_author.name %></span>
+          </h5>
+
+          <p class="comment-body"><%= comment.body %></p>
+          <p class="comment-timestamp"><%= l comment.created_at, :format => :short %></p>
+        </div>
+      <% end %>
+
+      <%= link_to "Visualizar post", post.link(@owner), class: "btn" %>
+    </div>
+  <% end %>
+</div>

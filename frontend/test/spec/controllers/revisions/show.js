@@ -1,0 +1,64 @@
+/*
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+'use strict';
+
+describe('Controller: RevisionsShowCtrl', function() {
+  var RevisionsShowCtrl,
+    subscribeToNewResourcesSpy,
+    liveSpy,
+    scope;
+
+  // load the controller's module
+  beforeEach(angular.mock.module('echoesApp'));
+
+  // Initialize the controller and a mock scope
+  beforeEach(inject(function($controller, $rootScope) {
+    scope = $rootScope.$new();
+    liveSpy = jasmine.createSpy();
+    subscribeToNewResourcesSpy = jasmine.createSpy();
+
+    scope.revision = {
+      contents: [{
+        id: 2,
+        $live: liveSpy
+      }]
+    }
+
+    var Stream = {
+      subscribeToNewResources: subscribeToNewResourcesSpy
+    }
+
+    RevisionsShowCtrl = $controller('RevisionsShowCtrl', {
+      $scope: scope,
+      Stream: Stream
+    });
+  }));
+
+  it('calls subscribeToNewResources', function() {
+    scope.$apply();
+    expect(subscribeToNewResourcesSpy).toHaveBeenCalled();
+  });
+
+  it('calls $live on existing contents', function() {
+    scope.$apply();
+    expect(liveSpy).toHaveBeenCalled();
+  });
+});

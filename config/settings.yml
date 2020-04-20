@@ -1,0 +1,29 @@
+carrierwave:
+  storage: "fog"
+
+default_host: "localhost"
+
+# fog
+fog:
+  provider: "AWS"
+  aws_access_key_id: "<%= ENV['AWS_ACCESS_KEY_ID'] %>"
+  aws_secret_access_key: "<%= ENV['AWS_SECRET_ACCESS_KEY'] %>"
+  aws_region: "<%= ENV['AWS_REGION'] %>"
+  directory_uploads: "<%= ENV['S3_UPLOADS_DIR'] %>"
+
+uploads_cdn: "https://<%= ENV['S3_UPLOADS_DIR'] %>.s3-sa-east-1.amazonaws.com"
+
+mailer:
+  from: no-reply@localhost
+
+smtp:
+  address: "<%= ENV['SMTP_ADDRESS'] %>"
+  username: "<%= ENV['SMTP_USERNAME'] %>"
+  password: "<%= ENV['SMTP_PASSWORD'] %>"
+  port: "<%= ENV['SMTP_PORT'] || 587 %>"
+  authentication: "<%= ENV['SMTP_AUTHENTICATION'] || :plain %>"
+  domain: "<%= ENV['SMTP_DOMAIN'] %>"
+
+roles:
+  superadmins:
+    - admin@email.test

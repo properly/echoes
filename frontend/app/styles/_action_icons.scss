@@ -1,0 +1,65 @@
+/*!
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+%icon {
+  @include hide-text;
+  @include inline-block;
+  margin-left: 1.25rem;
+
+  &:hover {
+    @include opacity(1);
+  }
+}
+
+.icons-garbage {
+  @extend %icon;
+  @include icons-sprite('garbage');
+  @include sprite-dimensions($icons-sprites, 'garbage');
+
+  &:hover {
+    @include icons-sprite('garbage-hover');
+  }
+}
+
+.icons-garbage-disabled {
+  @extend %icon;
+  @include icons-sprite('garbage-disabled');
+  @include sprite-dimensions($icons-sprites, 'garbage-disabled');
+}
+
+.icons-assign-users {
+  @extend %icon;
+  @include icons-sprite('assign-users');
+  @include sprite-dimensions($icons-sprites, 'assign-users');
+
+  &:hover {
+    @include icons-sprite('assign-users-hover');
+  }
+}
+
+.icons-edit {
+  @extend %icon;
+  @include icons-sprite('edit');
+  @include sprite-dimensions($icons-sprites, 'edit');
+
+  &:hover {
+    @include icons-sprite('edit-hover');
+  }
+}

@@ -1,0 +1,123 @@
+/*!
+ *
+ *  Echoes - A feedback platform for social marketing.
+ *  Copyright (C) 2020 Properly - dani (at) properly.com.br/ola (at) properly.com.br
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU Affero General Public License as published
+ *       by the Free Software Foundation, either version 3 of the License, or
+ *       (at your option) any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU Affero General Public License for more details.
+ *
+ *       You should have received a copy of the GNU Affero General Public License
+ *       along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+.home .subcontainer {
+  @include breakpoint($screen) {
+    @include with-layout($screen) {
+      @include container(12 center static);
+    }
+    overflow: hidden;
+    padding: 0;
+  }
+  padding: 0 1rem;
+}
+
+.section-splash {
+  @include breakpoint($screen) {
+    min-height: 43rem;
+  }
+
+  padding-top: 3rem;
+  padding-bottom: 6rem;
+  background: url(../images/bg/blue.png) 50% 50% no-repeat;
+  background-size: cover;
+
+  .main-splash {
+    @include breakpoint(30rem) {
+      font-size: 2.5rem;
+      line-height: 3.5rem;
+    }
+
+    @include breakpoint($screen) {
+      font-weight: 100;
+      font-size: 3rem;
+      line-height: 4rem;
+    }
+    max-width: 40rem;
+    font-weight: 300;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+.logo-large {
+  h1 {
+    @include replace-text-with-dimensions('../images/logo-echoes-large.png', 0, 50%);
+    @include breakpoint(42rem) {
+      float: left;
+      margin: 0;
+    }
+
+    margin: 0 auto;
+    margin-top: .825rem;
+    margin-bottom: 3rem;
+  }
+}
+
+.upper-menu {
+  @include breakpoint(42rem) {
+    float: right;
+  }
+
+  text-align: center;
+
+  ul {
+    padding: 0;
+    font-weight: 300;
+  }
+
+  li {
+    @include inline-block;
+    margin-left: 0.8rem;
+    list-style: none;
+  }
+
+  a {
+    color: $white;
+    font-size: $medium-font;
+  }
+
+  .btn-login {
+    @extend .btn;
+    @extend .btn-minimal;
+    border: 1px solid $white;
+    color: $white;
+    font-weight: 300;
+
+    &:hover {
+      color: $off-white;
+    }
+  }
+}
+
+.main-splash, .main-cto, .cto-wrap {
+  @include breakpoint($screen) {
+    @include span(8 of 12);
+  }
+  clear: both;
+  color: $white;
+}
+
+.main-cto {
+  @include breakpoint($screen) {
+    font-size: 1.5rem;
+  }
+  margin-top: 1rem;
+}
