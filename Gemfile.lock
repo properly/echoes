@@ -115,7 +115,7 @@ GEM
       dry-logic (~> 0.4, >= 0.4.0)
       dry-types (~> 0.12.0)
     erubi (1.7.1)
-    excon (0.62.0)
+    excon (0.73.0)
     factory_girl (4.9.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.9.0)
