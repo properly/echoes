@@ -16,13 +16,20 @@ It consists of
 We ran this on aws elastic beanstalk this but would pick a docker based solution today.
 
 ### Development setup
-The provided docker-compose file installs gems automatically but does not create/migrate the database
+The provided docker-compose file installs gems automatically but does not create/migrate the database, nor
+installs the depencies for compiling the frontend
+
+    # Install frontend dependencies
+    docker-compose run --rm frontend npm i
+
+    # once containers are up, migrate the database:
+    $ docker-compose run --rm web bin/rails db:migrate RAILS_ENV=development
 
     # Start docker containers
     $ docker-compose up
-    
-    # once containers are up, migrate the database:
-    $ docker-compose exec web bin/rails db:migrate RAILS_ENV=development
+
+It'll take a few moments for the containers to start, install the dependencies, compile the frontend and the 
+application to boot. Once all is ready the app should be accessible at `localhost:3000`
 
 ### Tests
 Backend tests can be executed with 

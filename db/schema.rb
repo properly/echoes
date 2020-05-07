@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20180716145104) do
 
   create_table "access_tokens", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.string "uuid", null: false
+    t.string "uuid", null: false, collation: "latin1_swedish_ci"
     t.integer "package_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20180716145104) do
   end
 
   create_table "clients", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.string "name", null: false
+    t.string "name", null: false, collation: "latin1_swedish_ci"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "organization_id"
@@ -65,33 +65,33 @@ ActiveRecord::Schema.define(version: 20180716145104) do
     t.integer "revision_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "comment_author_type"
+    t.string "comment_author_type", collation: "latin1_swedish_ci"
     t.integer "comment_author_id"
     t.index ["comment_author_id", "comment_author_type"], name: "index_comments_on_comment_author_id_and_comment_author_type"
     t.index ["revision_id"], name: "index_comments_on_revision_id"
   end
 
   create_table "contents", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.string "target"
+    t.string "target", collation: "latin1_swedish_ci"
     t.text "body"
     t.integer "revision_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "image"
+    t.string "image", collation: "latin1_swedish_ci"
     t.boolean "image_processing"
     t.string "video"
     t.index ["revision_id"], name: "index_contents_on_revision_id"
   end
 
   create_table "organizations", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.string "name", null: false
+    t.string "name", null: false, collation: "latin1_swedish_ci"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "packages", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.string "name", null: false
-    t.string "contact_email"
+    t.string "name", null: false, collation: "latin1_swedish_ci"
+    t.string "contact_email", collation: "latin1_swedish_ci"
     t.integer "client_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -104,8 +104,8 @@ ActiveRecord::Schema.define(version: 20180716145104) do
 
   create_table "posts", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.datetime "scheduled_at", null: false
-    t.string "name", null: false
-    t.string "status"
+    t.string "name", null: false, collation: "latin1_swedish_ci"
+    t.string "status", collation: "latin1_swedish_ci"
     t.integer "package_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 20180716145104) do
   end
 
   create_table "reviewers", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.string "email", null: false
+    t.string "email", null: false, collation: "latin1_swedish_ci"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["email"], name: "index_reviewers_on_email", unique: true
@@ -134,28 +134,28 @@ ActiveRecord::Schema.define(version: 20180716145104) do
   end
 
   create_table "users", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.string "email", null: false
+    t.string "email", null: false, collation: "latin1_swedish_ci"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "encrypted_password", default: ""
-    t.string "reset_password_token"
+    t.string "encrypted_password", default: "", collation: "latin1_swedish_ci"
+    t.string "reset_password_token", collation: "latin1_swedish_ci"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
+    t.string "current_sign_in_ip", collation: "latin1_swedish_ci"
+    t.string "last_sign_in_ip", collation: "latin1_swedish_ci"
     t.integer "organization_id"
     t.boolean "owner", default: false
-    t.string "invitation_token"
+    t.string "invitation_token", collation: "latin1_swedish_ci"
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"
     t.datetime "invitation_accepted_at"
     t.integer "invitation_limit"
     t.integer "invited_by_id"
-    t.string "invited_by_type"
-    t.string "avatar"
+    t.string "invited_by_type", collation: "latin1_swedish_ci"
+    t.string "avatar", collation: "latin1_swedish_ci"
     t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
