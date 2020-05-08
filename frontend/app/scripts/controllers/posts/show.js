@@ -33,8 +33,7 @@ angular.module('echoesApp')
   Post,
   Comment,
   Content,
-  Revision,
-  Client
+  Revision
 ) {
   var forEach = angular.forEach;
 
