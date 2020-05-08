@@ -73,6 +73,7 @@ angular.module('echoesApp')
     saveOrganization().then(function(organization) {
       CurrentUser.organization_id = organization.id;
       CurrentUser.owner = true;
+      redirect();
     });
   }
 
