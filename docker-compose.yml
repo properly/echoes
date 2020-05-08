@@ -33,6 +33,7 @@ services:
     volumes:
       - .:/usr/src/app
       - ./frontend/dist:/usr/src/app/public
+      - ./public/uploads:/usr/src/app/public/uploads
       - gems:/usr/local/bundle
     stdin_open: true
     tty: true
@@ -63,6 +64,7 @@ services:
     working_dir: /usr/src/app
     volumes:
       - .:/usr/src/app
+      - ./public/uploads:/usr/src/app/public/uploads
       - gems:/usr/local/bundle
     depends_on:
       - db
