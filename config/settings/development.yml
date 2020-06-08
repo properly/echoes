@@ -4,5 +4,5 @@ carrierwave:
 fog:
   provider: "AWS"
 
-default_host: "localhost:9000"
+default_host: "localhost:3000"
 
