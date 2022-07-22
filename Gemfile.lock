@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/properly/factory_girl-preload.git
+  remote: https://github.com/properly/factory_girl-preload.git
   revision: 48f8467c526d3616220d032fc25c43722e82f76a
   specs:
     factory_girl-preload (2.3.1)
@@ -188,7 +188,9 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mimemagic (0.3.2)
+    mimemagic (0.4.3)
+      nokogiri (~> 1)
+      rake
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
@@ -315,7 +317,7 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
-    tzinfo (1.2.5)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     unf (0.1.4)
       unf_ext
