@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/properly/factory_girl-preload.git
+  remote: https://github.com/properly/factory_girl-preload.git
   revision: 48f8467c526d3616220d032fc25c43722e82f76a
   specs:
     factory_girl-preload (2.3.1)
@@ -72,7 +72,7 @@ GEM
       deep_merge (~> 1.2.1)
       dry-validation (>= 0.10.4)
     connection_pool (2.2.1)
-    crass (1.0.4)
+    crass (1.0.6)
     css_parser (1.6.0)
       addressable
     deep_merge (1.2.1)
@@ -178,7 +178,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.2.2)
+    loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.13)
@@ -188,7 +188,9 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mimemagic (0.3.2)
+    mimemagic (0.4.3)
+      nokogiri (~> 1)
+      rake
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
@@ -237,8 +239,8 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.0.4)
-      loofah (~> 2.2, >= 2.2.2)
+    rails-html-sanitizer (1.4.4)
+      loofah (~> 2.19, >= 2.19.1)
     railties (5.1.6)
       actionpack (= 5.1.6)
       activesupport (= 5.1.6)
